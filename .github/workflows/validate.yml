@@ -1,0 +1,63 @@
+name: Validate CareFlow
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      DATABASE_URL: postgresql+asyncpg://careflow:localdev@127.0.0.1:5432/careflow_test
+      TEST_DATABASE_URL: postgresql+asyncpg://careflow:localdev@127.0.0.1:5432/careflow_test
+      APP_ENV: test
+      AI_PROVIDER: mock
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: careflow
+          POSTGRES_PASSWORD: localdev
+          POSTGRES_DB: careflow_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U careflow -d careflow_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: backend/uv.lock
+      - run: uv sync --frozen --extra dev --python 3.12
+      - run: uv run --frozen ruff check src tests scripts
+      - run: uv run --frozen mypy src
+      - run: uv run --frozen alembic upgrade head
+      - run: uv run --frozen pytest -q

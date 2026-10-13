@@ -1,0 +1,9 @@
+Reviewed and simulated: document_request
+Reviewed and simulated: authorization_submission
+Reviewed and simulated: appointment_booking
+Reviewed and simulated: case_closure
+Reviewed and simulated: case_closure
+Reviewed and simulated: case_closure
+Case SYN-9c2f037fd28748e7b090 / 83c9164e-2ec6-4687-a85a-ce8b554d125e: FULLY_RESOLVED
+SYN-9c2f037fd28748e7b090: referral ACCEPTED; documents COMPLETE; insurance VERIFIED; authorization APPROVED; scheduling COMPLETED; clinical COMMUNICATION_COMPLETE; financial PAID; overall FULLY_RESOLVED. Recent events: StateChanged, ClaimChanged, StateChanged, PaymentResolved, ActionProposed, ActionApproved, StateChanged, CaseDispositionRecorded
+Grounded sources: 9

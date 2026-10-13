@@ -1,0 +1,4682 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CareFlow AI",
+    "description": "Synthetic hospital administrative workflow demo. Not for real PHI. Default AI provider is deterministic mock.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/v1/auth/demo-users": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Demo Users",
+        "description": "Public fictional persona picker; no case/patient data. Demo mode is startup-enforced.",
+        "operationId": "demo_users_api_v1_auth_demo_users_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/demo-login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Login",
+        "description": "Select a fictional persona; intentionally not production authentication.",
+        "operationId": "login_api_v1_auth_demo_login_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/me": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Me",
+        "operationId": "me_api_v1_auth_me_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/patients": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Patients",
+        "description": "Read-only synthetic patient directory, restricted to the signed-in hospital.",
+        "operationId": "patients_api_v1_patients_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PatientView"
+                  },
+                  "type": "array",
+                  "title": "Response Patients Api V1 Patients Get"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Users",
+        "operationId": "users_api_v1_users_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/roles": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Roles",
+        "operationId": "roles_api_v1_roles_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/cases": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "List Cases",
+        "operationId": "list_cases_api_v1_cases_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          },
+          {
+            "name": "owner",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Owner"
+            }
+          },
+          {
+            "name": "priority",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Priority"
+            }
+          },
+          {
+            "name": "service_line",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Service Line"
+            }
+          },
+          {
+            "name": "received_after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Received After"
+            }
+          },
+          {
+            "name": "received_before",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Received Before"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CasePage"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Referral",
+        "description": "Permission: intake. Creates fixture-only referral/case/documents and transactional outbox events; duplicate reference returns original case.",
+        "operationId": "referral_api_v1_cases_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReferralInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/referrals": {
+      "post": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Referral",
+        "description": "Permission: intake. Creates fixture-only referral/case/documents and transactional outbox events; duplicate reference returns original case.",
+        "operationId": "referral_api_v1_referrals_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReferralInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/referrals/{referral_id}": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Referral Detail",
+        "operationId": "referral_detail_api_v1_referrals__referral_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "referral_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Referral Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/summary": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Case Detail",
+        "operationId": "case_detail_api_v1_cases__case_id__summary_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Case Detail",
+        "operationId": "case_detail_api_v1_cases__case_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/readiness": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Case Readiness",
+        "operationId": "case_readiness_api_v1_cases__case_id__readiness_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/timeline": {
+      "get": {
+        "tags": [
+          "cases"
+        ],
+        "summary": "Timeline",
+        "operationId": "timeline_api_v1_cases__case_id__timeline_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TimelineView"
+                  },
+                  "title": "Response Timeline Api V1 Cases  Case Id  Timeline Get"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/documents": {
+      "get": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "Case Documents",
+        "operationId": "case_documents_api_v1_cases__case_id__documents_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentView"
+                  },
+                  "title": "Response Case Documents Api V1 Cases  Case Id  Documents Get"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "Create Document",
+        "description": "Permission: documents. Generates/stores/indexes a synthetic PDF fixture; human verification remains required.",
+        "operationId": "create_document_api_v1_cases__case_id__documents_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/documents/upload": {
+      "post": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "Upload Document",
+        "description": "Accepts only exact server-generated fixtures; rejects arbitrary patient PDF data.",
+        "operationId": "upload_document_api_v1_cases__case_id__documents_upload_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          },
+          {
+            "name": "fixture_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "order",
+                "physician_note",
+                "payer_letter",
+                "final_report"
+              ],
+              "default": "physician_note",
+              "title": "Fixture Type"
+            }
+          },
+          {
+            "name": "variant",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "standard",
+                "prompt_injection"
+              ],
+              "default": "standard",
+              "title": "Variant"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_upload_document_api_v1_cases__case_id__documents_upload_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/documents/{document_id}": {
+      "get": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "Document Detail",
+        "operationId": "document_detail_api_v1_documents__document_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Document Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/documents/{document_id}/content": {
+      "get": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "Document Content",
+        "operationId": "document_content_api_v1_documents__document_id__content_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Document Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/documents/{document_id}/verify": {
+      "post": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "Verify Document",
+        "description": "Permission: documents. Records human administrative verification and enqueues review.",
+        "operationId": "verify_document_api_v1_documents__document_id__verify_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Document Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/insurance": {
+      "get": {
+        "tags": [
+          "insurance"
+        ],
+        "summary": "Insurance",
+        "operationId": "insurance_api_v1_cases__case_id__insurance_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/insurance/check": {
+      "post": {
+        "tags": [
+          "insurance"
+        ],
+        "summary": "Check Insurance",
+        "description": "Permission: insurance. Queues durable mock-payer check; no external connection.",
+        "operationId": "check_insurance_api_v1_cases__case_id__insurance_check_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/authorizations": {
+      "get": {
+        "tags": [
+          "authorizations"
+        ],
+        "summary": "Authorizations",
+        "operationId": "authorizations_api_v1_cases__case_id__authorizations_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuthorizationView"
+                  },
+                  "title": "Response Authorizations Api V1 Cases  Case Id  Authorizations Get"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/authorizations/prepare": {
+      "post": {
+        "tags": [
+          "authorizations"
+        ],
+        "summary": "Prepare Authorization",
+        "description": "Permission: authorization. Queues packet preparation; submission requires separate human approval.",
+        "operationId": "prepare_authorization_api_v1_cases__case_id__authorizations_prepare_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/authorizations/{authorization_id}/propose-submission": {
+      "post": {
+        "tags": [
+          "authorizations"
+        ],
+        "summary": "Propose Submission",
+        "operationId": "propose_submission_api_v1_authorizations__authorization_id__propose_submission_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "authorization_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Authorization Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/authorizations/{authorization_id}/history": {
+      "get": {
+        "tags": [
+          "authorizations"
+        ],
+        "summary": "Authorization History",
+        "operationId": "authorization_history_api_v1_authorizations__authorization_id__history_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "authorization_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Authorization Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/appointments": {
+      "get": {
+        "tags": [
+          "scheduling"
+        ],
+        "summary": "Appointments",
+        "operationId": "appointments_api_v1_cases__case_id__appointments_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppointmentView"
+                  },
+                  "title": "Response Appointments Api V1 Cases  Case Id  Appointments Get"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/appointments/propose": {
+      "post": {
+        "tags": [
+          "scheduling"
+        ],
+        "summary": "Book",
+        "description": "Permission: scheduling. Proposes a slot; booking requires scheduler approval and applicable authorization.",
+        "operationId": "book_api_v1_cases__case_id__appointments_propose_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppointmentInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/clinical-milestones": {
+      "get": {
+        "tags": [
+          "clinical"
+        ],
+        "summary": "Milestones",
+        "operationId": "milestones_api_v1_cases__case_id__clinical_milestones_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "clinical"
+        ],
+        "summary": "Record Milestone",
+        "description": "Permission: clinical (clinician persona only). Records synthetic qualified-staff attestation with version guard; no agent clinical decisions.",
+        "operationId": "record_milestone_api_v1_cases__case_id__clinical_milestones_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClinicalInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/claims": {
+      "get": {
+        "tags": [
+          "billing"
+        ],
+        "summary": "Claims",
+        "operationId": "claims_api_v1_cases__case_id__claims_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClaimView"
+                  },
+                  "title": "Response Claims Api V1 Cases  Case Id  Claims Get"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/financial-status": {
+      "get": {
+        "tags": [
+          "billing"
+        ],
+        "summary": "Financial",
+        "operationId": "financial_api_v1_cases__case_id__financial_status_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/cases/{case_id}/closure/propose": {
+      "post": {
+        "tags": [
+          "approvals"
+        ],
+        "summary": "Closure",
+        "operationId": "closure_api_v1_cases__case_id__closure_propose_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Case Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClosureInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/tasks": {
+      "get": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Tasks",
+        "operationId": "tasks_api_v1_tasks_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          },
+          {
+            "name": "owner",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Owner"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TaskView"
+                  },
+                  "title": "Response Tasks Api V1 Tasks Get"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Add Task",
+        "description": "Permission: tasks. Creates a deduplicated internal task with same-tenant owner validation.",
+        "operationId": "add_task_api_v1_tasks_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TaskInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/tasks/{task_id}": {
+      "patch": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Update Task",
+        "operationId": "update_task_api_v1_tasks__task_id__patch",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "task_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Task Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TaskUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/approvals": {
+      "get": {
+        "tags": [
+          "approvals"
+        ],
+        "summary": "Approval Queue",
+        "operationId": "approval_queue_api_v1_approvals_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": "AWAITING_APPROVAL",
+              "title": "Status"
+            }
+          },
+          {
+            "name": "case_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProposalView"
+                  },
+                  "title": "Response Approval Queue Api V1 Approvals Get"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/approvals/{proposal_id}": {
+      "get": {
+        "tags": [
+          "approvals"
+        ],
+        "summary": "Proposal Detail",
+        "operationId": "proposal_detail_api_v1_approvals__proposal_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Proposal Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/approvals/{proposal_id}/approve": {
+      "post": {
+        "tags": [
+          "approvals"
+        ],
+        "summary": "Approve",
+        "description": "Permission: proposal-specific approver role. Records immutable human decision and queues execution; stale/expired proposals return that status and never execute.",
+        "operationId": "approve_api_v1_approvals__proposal_id__approve_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Proposal Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/approvals/{proposal_id}/reject": {
+      "post": {
+        "tags": [
+          "approvals"
+        ],
+        "summary": "Reject",
+        "operationId": "reject_api_v1_approvals__proposal_id__reject_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Proposal Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/approvals/{proposal_id}/escalate": {
+      "post": {
+        "tags": [
+          "approvals"
+        ],
+        "summary": "Escalate",
+        "operationId": "escalate_api_v1_approvals__proposal_id__escalate_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Proposal Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/approvals/{proposal_id}/revise": {
+      "post": {
+        "tags": [
+          "approvals"
+        ],
+        "summary": "Revise",
+        "description": "Creates a fresh proposal and decision requirement; original payload is immutable.",
+        "operationId": "revise_api_v1_approvals__proposal_id__revise_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "proposal_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Proposal Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Payload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalView"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/assistant/messages": {
+      "post": {
+        "tags": [
+          "assistant"
+        ],
+        "summary": "Assistant Message",
+        "operationId": "assistant_message_api_v1_assistant_messages_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssistantInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssistantResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/assistant/conversations": {
+      "get": {
+        "tags": [
+          "assistant"
+        ],
+        "summary": "Conversations",
+        "operationId": "conversations_api_v1_assistant_conversations_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/assistant/conversations/{conversation_id}": {
+      "get": {
+        "tags": [
+          "assistant"
+        ],
+        "summary": "Conversation Detail",
+        "operationId": "conversation_detail_api_v1_assistant_conversations__conversation_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "conversation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Conversation Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/agents/runs": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Runs",
+        "operationId": "runs_api_v1_agents_runs_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/agents/runs/{run_id}": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Run Detail",
+        "operationId": "run_detail_api_v1_agents_runs__run_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/agents/{agent_name}/run": {
+      "post": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Run Agent",
+        "description": "Permission: agents AND underlying domain permission. Queues a bounded run using the same tool registry as event-driven runs.",
+        "operationId": "run_agent_api_v1_agents__agent_name__run_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "agent_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Name"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/jobs": {
+      "get": {
+        "tags": [
+          "agents"
+        ],
+        "summary": "Jobs",
+        "operationId": "jobs_api_v1_jobs_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/analytics/workflow": {
+      "get": {
+        "tags": [
+          "analytics"
+        ],
+        "summary": "Dashboard",
+        "operationId": "dashboard_api_v1_analytics_workflow_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/dashboard/summary": {
+      "get": {
+        "tags": [
+          "analytics"
+        ],
+        "summary": "Dashboard",
+        "operationId": "dashboard_api_v1_dashboard_summary_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/dashboard/work-queues": {
+      "get": {
+        "tags": [
+          "analytics"
+        ],
+        "summary": "Work Queues",
+        "operationId": "work_queues_api_v1_dashboard_work_queues_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/demo/seed": {
+      "post": {
+        "tags": [
+          "demo"
+        ],
+        "summary": "Demo Seed",
+        "operationId": "demo_seed_api_v1_demo_seed_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/demo/reset": {
+      "post": {
+        "tags": [
+          "demo"
+        ],
+        "summary": "Demo Reset",
+        "description": "Permission: demo_admin. Resets only this hospital's synthetic records; other hospital is retained. Stop worker first.",
+        "operationId": "demo_reset_api_v1_demo_reset_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/demo/events": {
+      "post": {
+        "tags": [
+          "demo"
+        ],
+        "summary": "Simulate",
+        "description": "Permission: demo_admin. Applies a typed, idempotent simulated integration event through workflow guards.",
+        "operationId": "simulate_api_v1_demo_events_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DemoEventInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/events/stream": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Events Stream",
+        "description": "Authenticated tenant-scoped SSE. Reconnect using Last-Event-ID; historical replay is bounded.",
+        "operationId": "events_stream_api_v1_events_stream_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "case_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Case Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        }
+      }
+    },
+    "/api/v1/voice/transcribe-simulated": {
+      "post": {
+        "tags": [
+          "voice"
+        ],
+        "summary": "Simulated Voice",
+        "operationId": "simulated_voice_api_v1_voice_transcribe_simulated_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranscriptInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/voice/transcribe": {
+      "post": {
+        "tags": [
+          "voice"
+        ],
+        "summary": "Transcribe",
+        "operationId": "transcribe_api_v1_voice_transcribe_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_transcribe_api_v1_voice_transcribe_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/voice/synthesize": {
+      "post": {
+        "tags": [
+          "voice"
+        ],
+        "summary": "Synthesize",
+        "operationId": "synthesize_api_v1_voice_synthesize_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpeechInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/expired demo session"
+          },
+          "403": {
+            "description": "Role lacks permission"
+          },
+          "404": {
+            "description": "Resource absent in authorized hospital"
+          },
+          "409": {
+            "description": "State, version or idempotency conflict"
+          },
+          "422": {
+            "description": "Invalid input or unsafe fixture"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AgentInput": {
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "case_id"
+        ],
+        "title": "AgentInput"
+      },
+      "AppointmentInput": {
+        "properties": {
+          "scheduled_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheduled At"
+          },
+          "location": {
+            "type": "string",
+            "enum": [
+              "SYN-MRI-A",
+              "SYN-MRI-B"
+            ],
+            "title": "Location",
+            "default": "SYN-MRI-A"
+          },
+          "tentative": {
+            "type": "boolean",
+            "title": "Tentative",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "AppointmentInput"
+      },
+      "AppointmentView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Tenant Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          },
+          "scheduled_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Scheduled At"
+          },
+          "location": {
+            "type": "string",
+            "title": "Location"
+          },
+          "performing_provider": {
+            "type": "string",
+            "title": "Performing Provider"
+          },
+          "procedure_code": {
+            "type": "string",
+            "title": "Procedure Code"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "reference": {
+            "type": "string",
+            "title": "Reference"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tenant_id",
+          "created_at",
+          "case_id",
+          "scheduled_at",
+          "location",
+          "performing_provider",
+          "procedure_code",
+          "status",
+          "reference"
+        ],
+        "title": "AppointmentView"
+      },
+      "AssistantInput": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Message"
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "case",
+              "work_queue",
+              "authorized_search"
+            ],
+            "title": "Scope",
+            "default": "case"
+          },
+          "case_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Case Id"
+          },
+          "conversation_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conversation Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "title": "AssistantInput"
+      },
+      "AssistantResponse": {
+        "properties": {
+          "conversation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Conversation Id"
+          },
+          "scope": {
+            "type": "string",
+            "title": "Scope"
+          },
+          "case_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Case Id"
+          },
+          "answer": {
+            "type": "string",
+            "title": "Answer"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "proposed_actions": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Proposed Actions"
+          },
+          "unresolved_questions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Unresolved Questions"
+          },
+          "provider": {
+            "type": "string",
+            "title": "Provider",
+            "default": "mock"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "conversation_id",
+          "scope",
+          "case_id",
+          "answer",
+          "sources"
+        ],
+        "title": "AssistantResponse"
+      },
+      "AuthorizationView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Tenant Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          },
+          "requested_service": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Requested Service"
+          },
+          "packet_document_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Packet Document Ids"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "payer_reference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Payer Reference"
+          },
+          "submitted_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Submitted At"
+          },
+          "decision_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decision At"
+          },
+          "approval_expires_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approval Expires At"
+          },
+          "approved_service": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approved Service"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tenant_id",
+          "created_at",
+          "case_id",
+          "requested_service",
+          "packet_document_ids",
+          "status",
+          "payer_reference",
+          "submitted_at",
+          "decision_at",
+          "approval_expires_at",
+          "approved_service"
+        ],
+        "title": "AuthorizationView"
+      },
+      "Body_transcribe_api_v1_voice_transcribe_post": {
+        "properties": {
+          "audio": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio"
+        ],
+        "title": "Body_transcribe_api_v1_voice_transcribe_post"
+      },
+      "Body_upload_document_api_v1_cases__case_id__documents_upload_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_upload_document_api_v1_cases__case_id__documents_upload_post"
+      },
+      "CasePage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CaseView"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "CasePage"
+      },
+      "CaseView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Tenant Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "patient_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Patient Id"
+          },
+          "referral_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Referral Id"
+          },
+          "case_number": {
+            "type": "string",
+            "title": "Case Number"
+          },
+          "service_line": {
+            "type": "string",
+            "title": "Service Line"
+          },
+          "coordinator_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Coordinator Id"
+          },
+          "overall_status": {
+            "type": "string",
+            "title": "Overall Status"
+          },
+          "referral_status": {
+            "type": "string",
+            "title": "Referral Status"
+          },
+          "document_status": {
+            "type": "string",
+            "title": "Document Status"
+          },
+          "insurance_status": {
+            "type": "string",
+            "title": "Insurance Status"
+          },
+          "authorization_status": {
+            "type": "string",
+            "title": "Authorization Status"
+          },
+          "scheduling_status": {
+            "type": "string",
+            "title": "Scheduling Status"
+          },
+          "clinical_status": {
+            "type": "string",
+            "title": "Clinical Status"
+          },
+          "financial_status": {
+            "type": "string",
+            "title": "Financial Status"
+          },
+          "scenario": {
+            "type": "string",
+            "title": "Scenario"
+          },
+          "priority": {
+            "type": "string",
+            "title": "Priority"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tenant_id",
+          "created_at",
+          "patient_id",
+          "referral_id",
+          "case_number",
+          "service_line",
+          "coordinator_id",
+          "overall_status",
+          "referral_status",
+          "document_status",
+          "insurance_status",
+          "authorization_status",
+          "scheduling_status",
+          "clinical_status",
+          "financial_status",
+          "scenario",
+          "priority",
+          "version",
+          "updated_at"
+        ],
+        "title": "CaseView"
+      },
+      "ClaimView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Tenant Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          },
+          "claim_number": {
+            "type": "string",
+            "title": "Claim Number"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "amount": {
+            "type": "string",
+            "title": "Amount"
+          },
+          "resolved_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolved At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tenant_id",
+          "created_at",
+          "case_id",
+          "claim_number",
+          "status",
+          "amount",
+          "resolved_at"
+        ],
+        "title": "ClaimView"
+      },
+      "ClinicalInput": {
+        "properties": {
+          "milestone": {
+            "type": "string",
+            "enum": [
+              "PREVISIT_REVIEW",
+              "READY",
+              "CLINICAL_HOLD",
+              "SERVICE_COMPLETED",
+              "REPORT_FINAL",
+              "COMMUNICATION_COMPLETE"
+            ],
+            "title": "Milestone"
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expected Version"
+          },
+          "synthetic_attestation": {
+            "type": "boolean",
+            "const": true,
+            "title": "Synthetic Attestation"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "milestone",
+          "expected_version",
+          "synthetic_attestation"
+        ],
+        "title": "ClinicalInput"
+      },
+      "ClosureInput": {
+        "properties": {
+          "disposition": {
+            "type": "string",
+            "enum": [
+              "CLINICALLY_RESOLVED",
+              "FINANCIAL_FOLLOW_UP",
+              "FULLY_RESOLVED",
+              "CANCELED",
+              "TRANSFERRED"
+            ],
+            "title": "Disposition"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500,
+            "title": "Reason",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "disposition"
+        ],
+        "title": "ClosureInput"
+      },
+      "DecisionInput": {
+        "properties": {
+          "reason": {
+            "type": "string",
+            "maxLength": 500,
+            "title": "Reason",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "DecisionInput"
+      },
+      "DemoEventInput": {
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          },
+          "external_event_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^SYN-[A-Za-z0-9_-]+$",
+            "title": "External Event Id"
+          },
+          "event_type": {
+            "type": "string",
+            "enum": [
+              "document_received",
+              "authorization_approved",
+              "authorization_denied",
+              "authorization_more_information",
+              "authorization_expired",
+              "appointment_rescheduled",
+              "appointment_canceled",
+              "no_show",
+              "claim_submitted",
+              "claim_denied",
+              "claim_paid",
+              "claim_rejected",
+              "financial_adjusted"
+            ],
+            "title": "Event Type"
+          },
+          "mismatch_location": {
+            "type": "boolean",
+            "title": "Mismatch Location",
+            "default": false
+          },
+          "expire": {
+            "type": "boolean",
+            "title": "Expire",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "case_id",
+          "external_event_id",
+          "event_type"
+        ],
+        "title": "DemoEventInput"
+      },
+      "DocumentInput": {
+        "properties": {
+          "fixture_type": {
+            "type": "string",
+            "enum": [
+              "order",
+              "physician_note",
+              "payer_letter",
+              "final_report"
+            ],
+            "title": "Fixture Type"
+          },
+          "variant": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "prompt_injection"
+            ],
+            "title": "Variant",
+            "default": "standard"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "fixture_type"
+        ],
+        "title": "DocumentInput"
+      },
+      "DocumentView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Tenant Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "storage_path": {
+            "type": "string",
+            "title": "Storage Path"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          },
+          "verification_status": {
+            "type": "string",
+            "title": "Verification Status"
+          },
+          "content_hash": {
+            "type": "string",
+            "title": "Content Hash"
+          },
+          "indexed": {
+            "type": "boolean",
+            "title": "Indexed"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tenant_id",
+          "created_at",
+          "case_id",
+          "type",
+          "title",
+          "storage_path",
+          "source",
+          "version",
+          "verification_status",
+          "content_hash",
+          "indexed"
+        ],
+        "title": "DocumentView"
+      },
+      "Login": {
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "User Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "user_id"
+        ],
+        "title": "Login"
+      },
+      "PatientView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Tenant Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "mrn": {
+            "type": "string",
+            "title": "Mrn"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "date_of_birth": {
+            "type": "string",
+            "format": "date",
+            "title": "Date Of Birth"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tenant_id",
+          "created_at",
+          "mrn",
+          "name",
+          "date_of_birth"
+        ],
+        "title": "PatientView"
+      },
+      "ProposalView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Tenant Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          },
+          "agent_run_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Run Id"
+          },
+          "action_type": {
+            "type": "string",
+            "title": "Action Type"
+          },
+          "target_system": {
+            "type": "string",
+            "title": "Target System"
+          },
+          "target_reference": {
+            "type": "string",
+            "title": "Target Reference"
+          },
+          "proposed_payload": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Proposed Payload"
+          },
+          "payload_hash": {
+            "type": "string",
+            "title": "Payload Hash"
+          },
+          "risk_level": {
+            "type": "string",
+            "title": "Risk Level"
+          },
+          "required_permission": {
+            "type": "string",
+            "title": "Required Permission"
+          },
+          "required_approver_role": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required Approver Role"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "case_version": {
+            "type": "integer",
+            "title": "Case Version"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Expires At"
+          },
+          "dedupe_key": {
+            "type": "string",
+            "title": "Dedupe Key"
+          },
+          "receipt": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Receipt"
+          },
+          "revision_of": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revision Of"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tenant_id",
+          "created_at",
+          "case_id",
+          "agent_run_id",
+          "action_type",
+          "target_system",
+          "target_reference",
+          "proposed_payload",
+          "payload_hash",
+          "risk_level",
+          "required_permission",
+          "required_approver_role",
+          "status",
+          "case_version",
+          "expires_at",
+          "dedupe_key",
+          "receipt",
+          "revision_of"
+        ],
+        "title": "ProposalView"
+      },
+      "ReadinessView": {
+        "properties": {
+          "administratively_ready": {
+            "type": "boolean",
+            "title": "Administratively Ready"
+          },
+          "blockers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Blockers"
+          },
+          "missing_documents": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Missing Documents"
+          },
+          "clinical_clearance": {
+            "type": "string",
+            "title": "Clinical Clearance"
+          },
+          "case_version": {
+            "type": "integer",
+            "title": "Case Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "administratively_ready",
+          "blockers",
+          "missing_documents",
+          "clinical_clearance",
+          "case_version"
+        ],
+        "title": "ReadinessView"
+      },
+      "ReferralInput": {
+        "properties": {
+          "synthetic_fixture_id": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Synthetic Fixture Id"
+          },
+          "external_reference": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^SYN-[A-Za-z0-9_-]+$",
+            "title": "External Reference"
+          },
+          "procedure_code": {
+            "type": "string",
+            "enum": [
+              "70551",
+              "70552",
+              "70553"
+            ],
+            "title": "Procedure Code",
+            "default": "70551"
+          },
+          "location": {
+            "type": "string",
+            "enum": [
+              "SYN-MRI-A",
+              "SYN-MRI-B"
+            ],
+            "title": "Location",
+            "default": "SYN-MRI-A"
+          },
+          "scenario": {
+            "type": "string",
+            "enum": [
+              "normal",
+              "missing_note",
+              "ambiguous_identity",
+              "invalid_order",
+              "payer_timeout",
+              "transmission_failure",
+              "not_required"
+            ],
+            "title": "Scenario",
+            "default": "missing_note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "synthetic_fixture_id",
+          "external_reference"
+        ],
+        "title": "ReferralInput"
+      },
+      "Source": {
+        "properties": {
+          "record_type": {
+            "type": "string",
+            "title": "Record Type"
+          },
+          "record_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Record Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "document_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Id"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          },
+          "excerpt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Excerpt"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "record_type",
+          "record_id",
+          "title"
+        ],
+        "title": "Source"
+      },
+      "SpeechInput": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Text"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "title": "SpeechInput"
+      },
+      "TaskInput": {
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          },
+          "task_type": {
+            "type": "string",
+            "enum": [
+              "administrative_follow_up",
+              "document_review",
+              "billing_review"
+            ],
+            "title": "Task Type"
+          },
+          "owner_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Owner Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "case_id",
+          "task_type"
+        ],
+        "title": "TaskInput"
+      },
+      "TaskUpdate": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "OPEN",
+              "IN_PROGRESS",
+              "COMPLETED",
+              "CANCELED"
+            ],
+            "title": "Status"
+          },
+          "owner_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Owner Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "TaskUpdate"
+      },
+      "TaskView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Tenant Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          },
+          "owner_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Owner Id"
+          },
+          "task_type": {
+            "type": "string",
+            "title": "Task Type"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "priority": {
+            "type": "string",
+            "title": "Priority"
+          },
+          "due_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Due At"
+          },
+          "dedupe_key": {
+            "type": "string",
+            "title": "Dedupe Key"
+          },
+          "details": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Details"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tenant_id",
+          "created_at",
+          "case_id",
+          "owner_id",
+          "task_type",
+          "status",
+          "priority",
+          "due_at",
+          "dedupe_key",
+          "details"
+        ],
+        "title": "TaskView"
+      },
+      "TimelineView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Tenant Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "case_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Case Id"
+          },
+          "event_type": {
+            "type": "string",
+            "title": "Event Type"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "actor_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Id"
+          },
+          "payload": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Payload"
+          },
+          "correlation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Correlation Id"
+          },
+          "causation_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Causation Id"
+          },
+          "schema_version": {
+            "type": "integer",
+            "title": "Schema Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "tenant_id",
+          "created_at",
+          "case_id",
+          "event_type",
+          "source",
+          "actor_id",
+          "payload",
+          "correlation_id",
+          "causation_id",
+          "schema_version"
+        ],
+        "title": "TimelineView"
+      },
+      "TranscriptInput": {
+        "properties": {
+          "transcript": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Transcript"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "transcript"
+        ],
+        "title": "TranscriptInput"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

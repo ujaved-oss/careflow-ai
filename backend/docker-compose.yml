@@ -1,0 +1,59 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: careflow
+      POSTGRES_PASSWORD: localdev
+      POSTGRES_DB: careflow
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U careflow"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  api:
+    build: .
+    environment: &environment
+      DATABASE_URL: postgresql+asyncpg://careflow:localdev@postgres:5432/careflow
+      APP_ENV: demo
+      DEMO_MODE: "true"
+      AI_PROVIDER: mock
+      OLLAMA_BASE_URL: http://ollama:11434
+      EXTERNAL_INTEGRATIONS_ENABLED: "false"
+      ALLOW_REAL_PATIENT_DATA: "false"
+    command: ["sh", "-c", "uv run alembic upgrade head && uv run python -m careflow.seed && uv run uvicorn careflow.main:app --host 0.0.0.0 --port 8000"]
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - documents:/app/storage
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "uv", "run", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 40
+  worker:
+    build: .
+    environment: *environment
+    command: ["uv", "run", "python", "-m", "careflow.worker"]
+    volumes:
+      - documents:/app/storage
+    depends_on:
+      api:
+        condition: service_healthy
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["local-ai"]
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+volumes:
+  pgdata:
+  documents:
+  ollama:

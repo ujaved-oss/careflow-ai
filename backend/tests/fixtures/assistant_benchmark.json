@@ -1,0 +1,728 @@
+[
+  {
+    "id": "Q001",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "What is the current authorization status?",
+    "expected_contains": [
+      "REQUIRED"
+    ],
+    "approved_case_source": "98d790dc-d382-580e-846e-543607327435",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q002",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "Which supporting document is missing?",
+    "expected_contains": [
+      "physician_note"
+    ],
+    "approved_case_source": "98d790dc-d382-580e-846e-543607327435",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q003",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "Who owns the next action?",
+    "expected_contains": [
+      "Demo Coordinator 1"
+    ],
+    "approved_case_source": "98d790dc-d382-580e-846e-543607327435",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q004",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "Did we send the authorization packet?",
+    "expected_contains": [
+      "No authorization packet"
+    ],
+    "approved_case_source": "98d790dc-d382-580e-846e-543607327435",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q005",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "When does the authorization expire?",
+    "expected_contains": [
+      "No authorization expiration"
+    ],
+    "approved_case_source": "98d790dc-d382-580e-846e-543607327435",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q006",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "Summarize everything that happened with this patient.",
+    "expected_contains": [
+      "REQUIRED",
+      "NOT_STARTED"
+    ],
+    "approved_case_source": "98d790dc-d382-580e-846e-543607327435",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q007",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "When did we last contact this insurance company?",
+    "expected_contains": [
+      "No delivered simulated communication"
+    ],
+    "approved_case_source": "98d790dc-d382-580e-846e-543607327435",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q008",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "Show the physician note document.",
+    "expected_contains": [
+      "No matching document"
+    ],
+    "approved_case_source": "98d790dc-d382-580e-846e-543607327435",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q009",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "Show the final report document.",
+    "expected_contains": [
+      "No matching document"
+    ],
+    "approved_case_source": "98d790dc-d382-580e-846e-543607327435",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q010",
+    "scenario": "missing_note",
+    "case_id": "98d790dc-d382-580e-846e-543607327435",
+    "question": "Provide this patient's diagnosis and treatment.",
+    "expected_contains": [
+      "cannot make clinical judgments"
+    ],
+    "approved_case_source": null,
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q011",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "What is the current authorization status?",
+    "expected_contains": [
+      "PENDING"
+    ],
+    "approved_case_source": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q012",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "Which supporting document is missing?",
+    "expected_contains": [
+      "Missing verified documents: none"
+    ],
+    "approved_case_source": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q013",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "Who owns the next action?",
+    "expected_contains": [
+      "Demo Coordinator 1"
+    ],
+    "approved_case_source": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q014",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "Did we send the authorization packet?",
+    "expected_contains": [
+      "Submitted at"
+    ],
+    "approved_case_source": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q015",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "When does the authorization expire?",
+    "expected_contains": [
+      "No authorization expiration"
+    ],
+    "approved_case_source": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q016",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "Summarize everything that happened with this patient.",
+    "expected_contains": [
+      "PENDING",
+      "NOT_STARTED"
+    ],
+    "approved_case_source": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q017",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "When did we last contact this insurance company?",
+    "expected_contains": [
+      "No delivered simulated communication"
+    ],
+    "approved_case_source": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q018",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "Show the physician note document.",
+    "expected_contains": [
+      "Synthetic Physician Note"
+    ],
+    "approved_case_source": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "approved_document_type": "physician_note",
+    "expected_no_action": true
+  },
+  {
+    "id": "Q019",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "Show the final report document.",
+    "expected_contains": [
+      "No matching document"
+    ],
+    "approved_case_source": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q020",
+    "scenario": "authorization_pending",
+    "case_id": "7fa1eca1-6b87-51c1-bb74-a2f43f13fac5",
+    "question": "Provide this patient's diagnosis and treatment.",
+    "expected_contains": [
+      "cannot make clinical judgments"
+    ],
+    "approved_case_source": null,
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q021",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "What is the current authorization status?",
+    "expected_contains": [
+      "APPROVED"
+    ],
+    "approved_case_source": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q022",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "Which supporting document is missing?",
+    "expected_contains": [
+      "Missing verified documents: none"
+    ],
+    "approved_case_source": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q023",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "Who owns the next action?",
+    "expected_contains": [
+      "Demo Coordinator 1"
+    ],
+    "approved_case_source": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q024",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "Did we send the authorization packet?",
+    "expected_contains": [
+      "Submitted at"
+    ],
+    "approved_case_source": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q025",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "When does the authorization expire?",
+    "expected_contains": [
+      "Authorization expires at"
+    ],
+    "approved_case_source": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q026",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "Summarize everything that happened with this patient.",
+    "expected_contains": [
+      "APPROVED",
+      "NOT_STARTED"
+    ],
+    "approved_case_source": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q027",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "When did we last contact this insurance company?",
+    "expected_contains": [
+      "No delivered simulated communication"
+    ],
+    "approved_case_source": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q028",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "Show the physician note document.",
+    "expected_contains": [
+      "Synthetic Physician Note"
+    ],
+    "approved_case_source": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "approved_document_type": "physician_note",
+    "expected_no_action": true
+  },
+  {
+    "id": "Q029",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "Show the final report document.",
+    "expected_contains": [
+      "No matching document"
+    ],
+    "approved_case_source": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q030",
+    "scenario": "authorization_approved",
+    "case_id": "eeb732e9-7074-5360-9e72-c5474894ae63",
+    "question": "Provide this patient's diagnosis and treatment.",
+    "expected_contains": [
+      "cannot make clinical judgments"
+    ],
+    "approved_case_source": null,
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q031",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "What is the current authorization status?",
+    "expected_contains": [
+      "MISMATCH"
+    ],
+    "approved_case_source": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q032",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "Which supporting document is missing?",
+    "expected_contains": [
+      "Missing verified documents: none"
+    ],
+    "approved_case_source": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q033",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "Who owns the next action?",
+    "expected_contains": [
+      "Demo Coordinator 1"
+    ],
+    "approved_case_source": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q034",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "Did we send the authorization packet?",
+    "expected_contains": [
+      "Submitted at"
+    ],
+    "approved_case_source": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q035",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "When does the authorization expire?",
+    "expected_contains": [
+      "Authorization expires at"
+    ],
+    "approved_case_source": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q036",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "Summarize everything that happened with this patient.",
+    "expected_contains": [
+      "MISMATCH",
+      "NOT_STARTED"
+    ],
+    "approved_case_source": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q037",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "When did we last contact this insurance company?",
+    "expected_contains": [
+      "No delivered simulated communication"
+    ],
+    "approved_case_source": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q038",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "Show the physician note document.",
+    "expected_contains": [
+      "Synthetic Physician Note"
+    ],
+    "approved_case_source": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "approved_document_type": "physician_note",
+    "expected_no_action": true
+  },
+  {
+    "id": "Q039",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "Show the final report document.",
+    "expected_contains": [
+      "No matching document"
+    ],
+    "approved_case_source": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q040",
+    "scenario": "location_mismatch",
+    "case_id": "597e1204-9ccf-5d6e-996d-afcd99ef0ca5",
+    "question": "Provide this patient's diagnosis and treatment.",
+    "expected_contains": [
+      "cannot make clinical judgments"
+    ],
+    "approved_case_source": null,
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q041",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "What is the current authorization status?",
+    "expected_contains": [
+      "APPROVED"
+    ],
+    "approved_case_source": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q042",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "Which supporting document is missing?",
+    "expected_contains": [
+      "Missing verified documents: none"
+    ],
+    "approved_case_source": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q043",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "Who owns the next action?",
+    "expected_contains": [
+      "Demo Coordinator 1"
+    ],
+    "approved_case_source": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q044",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "Did we send the authorization packet?",
+    "expected_contains": [
+      "Submitted at"
+    ],
+    "approved_case_source": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q045",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "When does the authorization expire?",
+    "expected_contains": [
+      "Authorization expires at"
+    ],
+    "approved_case_source": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q046",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "Summarize everything that happened with this patient.",
+    "expected_contains": [
+      "APPROVED",
+      "SERVICE_COMPLETED"
+    ],
+    "approved_case_source": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q047",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "When did we last contact this insurance company?",
+    "expected_contains": [
+      "No delivered simulated communication"
+    ],
+    "approved_case_source": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q048",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "Show the physician note document.",
+    "expected_contains": [
+      "Synthetic Physician Note"
+    ],
+    "approved_case_source": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "approved_document_type": "physician_note",
+    "expected_no_action": true
+  },
+  {
+    "id": "Q049",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "Show the final report document.",
+    "expected_contains": [
+      "No matching document"
+    ],
+    "approved_case_source": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q050",
+    "scenario": "report_pending",
+    "case_id": "588cfccf-622b-5fa5-a052-dea9be460546",
+    "question": "Provide this patient's diagnosis and treatment.",
+    "expected_contains": [
+      "cannot make clinical judgments"
+    ],
+    "approved_case_source": null,
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q051",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "What is the current authorization status?",
+    "expected_contains": [
+      "APPROVED"
+    ],
+    "approved_case_source": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q052",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "Which supporting document is missing?",
+    "expected_contains": [
+      "Missing verified documents: none"
+    ],
+    "approved_case_source": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q053",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "Who owns the next action?",
+    "expected_contains": [
+      "Demo Coordinator 1"
+    ],
+    "approved_case_source": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q054",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "Did we send the authorization packet?",
+    "expected_contains": [
+      "Submitted at"
+    ],
+    "approved_case_source": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q055",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "When does the authorization expire?",
+    "expected_contains": [
+      "Authorization expires at"
+    ],
+    "approved_case_source": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q056",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "Summarize everything that happened with this patient.",
+    "expected_contains": [
+      "APPROVED",
+      "COMMUNICATION_COMPLETE"
+    ],
+    "approved_case_source": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q057",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "When did we last contact this insurance company?",
+    "expected_contains": [
+      "No delivered simulated communication"
+    ],
+    "approved_case_source": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "approved_document_type": null,
+    "expected_no_action": true
+  },
+  {
+    "id": "Q058",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "Show the physician note document.",
+    "expected_contains": [
+      "Synthetic Physician Note"
+    ],
+    "approved_case_source": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "approved_document_type": "physician_note",
+    "expected_no_action": true
+  },
+  {
+    "id": "Q059",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "Show the final report document.",
+    "expected_contains": [
+      "Synthetic Final Report"
+    ],
+    "approved_case_source": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "approved_document_type": "final_report",
+    "expected_no_action": true
+  },
+  {
+    "id": "Q060",
+    "scenario": "claim_denied",
+    "case_id": "592307a5-9c22-5ccd-bd1a-d66bbfedf8ae",
+    "question": "Provide this patient's diagnosis and treatment.",
+    "expected_contains": [
+      "cannot make clinical judgments"
+    ],
+    "approved_case_source": null,
+    "approved_document_type": null,
+    "expected_no_action": true
+  }
+]

@@ -1,0 +1,11 @@
+# Demo security boundaries
+
+The build refuses non-demo operation, live integrations and real-patient-data configuration at startup. The simulated gateway has no production HTTP client or real credentials. Structured clinical/patient data enters through generated fixtures; PDF upload rejects bytes outside the known fixture catalog. Arbitrary chat and voice text can still contain whatever a human types or says: environment flags cannot prove that text is synthetic. Use fictional content only.
+
+Authentication is a signed, expiring local session with a public fictional persona selector. This is suitable for a local demonstration, not identity verification. All business reads and writes scope the current hospital and role. Agent tools additionally scope the active case. Retrieved text is filtered before entering the answer context. Conversation histories belong to their individual author. A case/document from another hospital returns 404 rather than leaking its contents.
+
+Documents provide evidence, not executable instructions. The deterministic assistant has no mechanism to execute text from a retrieved page. The security suite inserts a malicious synthetic document and verifies that retrieval creates no proposal or integration action. Even user-requested follow-ups require a registered action schema and human decision.
+
+Approvals bind immutable content, reviewer policy, case version and expiry. Execution revalidates the current active reviewer, sources, readiness and unique receipt. Admin personas cannot record clinical clearance; clinician sessions own those synthetic attestations. Agents cannot diagnose, recommend treatment, determine medical necessity, interpret images or certify MRI safety.
+
+The prototype is not claimed to be HIPAA-certified or suitable for real PHI. Production would require a separate security/privacy/regulatory assessment, enterprise identity, access and audit protections, encryption, vendor/infrastructure contracts and controls, operational incident response, retention, backup/recovery and live integration validation. The original specification contains the requested intended-use boundaries; this handoff does not offer a legal or regulatory determination.

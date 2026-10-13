@@ -1,0 +1,674 @@
+.hero {
+  height: calc(100svh - 78px);
+  min-height: 630px;
+  max-height: 850px;
+}
+.hero h1 {
+  font-size: clamp(47px, 5.3vw, 76px);
+  line-height: 1.07;
+}
+.hero-art {
+  height: 370px;
+  width: min(1080px, 92vw);
+  margin: 7px auto 0;
+}
+.hero-art .glass-sculpture {
+  width: 650px;
+  height: 433px;
+  top: -10px;
+}
+.hero-context {
+  position: absolute;
+  top: 100px;
+  width: 210px;
+  text-align: left;
+  z-index: 2;
+}
+.context-problem {
+  left: 0;
+}
+.context-answer {
+  right: 0;
+}
+.hero-context > span {
+  font-size: 10px;
+  color: var(--blue);
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 650;
+}
+.hero-context > strong {
+  font-size: 23px;
+  letter-spacing: -0.04em;
+  line-height: 1.3;
+}
+.hero-context p {
+  font-size: 12px;
+  line-height: 1.9;
+  margin-top: 15px;
+}
+.hero .orbit-one {
+  left: 26%;
+  top: 20px;
+}
+.hero .orbit-two {
+  right: 20%;
+  bottom: 48px;
+}
+.hero .orbit-three {
+  left: 28%;
+  bottom: 18px;
+}
+.hero-bottom {
+  margin-top: 6px;
+}
+.hero-copy p {
+  font-size: 13px;
+}
+.hero-copy .eyebrow {
+  font-size: 9px;
+}
+.problem-section {
+  padding: 140px 30px 110px;
+  background: linear-gradient(#f5f8fc, #edf3fc, #f5f8fc);
+}
+.problem-intro {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 90px;
+}
+.problem-intro h2 {
+  font-size: clamp(40px, 5vw, 70px);
+  line-height: 1.07;
+}
+.problem-intro p {
+  font-size: 14px;
+  margin-top: 23px;
+}
+.problem-stack {
+  position: relative;
+  max-width: 980px;
+  margin: auto;
+  padding-bottom: 100px;
+}
+.problem-connection {
+  position: absolute;
+  top: -50px;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #d6e4f8;
+}
+.problem-connection > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--blue);
+  transform-origin: top;
+}
+.problem-card {
+  position: sticky;
+  top: 100px;
+  display: grid;
+  grid-template-columns: 50px 1fr 240px;
+  gap: 25px;
+  align-items: start;
+  padding: 48px 40px;
+  background: rgba(255, 255, 255, 0.91);
+  border: 1px solid #fff;
+  border-radius: 24px;
+  box-shadow: 0 25px 80px -35px #7899be55;
+  backdrop-filter: blur(12px);
+  margin-bottom: 140px;
+  min-height: 340px;
+}
+.problem-card:nth-of-type(2) {
+  top: 122px;
+}
+.problem-card:nth-of-type(3) {
+  top: 144px;
+  background: #edf4ff;
+}
+.problem-symbol {
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  background: #e5edfb;
+  border: 1px solid #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 17px;
+}
+.problem-symbol .ph {
+  font-size: 25px;
+}
+.problem-card-copy > span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.problem-card h3 {
+  font-size: 30px;
+  line-height: 1.15;
+  margin: 15px 0;
+}
+.problem-card p {
+  font-size: 13px;
+  max-width: 380px;
+}
+.problem-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--blue);
+  margin-top: 22px;
+}
+.problem-card a .ph {
+  font-size: 16px;
+}
+.handoff-fragment {
+  display: grid;
+  gap: 12px;
+  transform: rotate(3deg);
+  padding-top: 10px;
+}
+.handoff-fragment > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 17px;
+  background: #f5f8fc;
+  border: 1px solid #e1e9f4;
+  border-radius: 14px;
+  font-size: 11px;
+  color: var(--muted);
+  box-shadow: 0 8px 22px -16px #7f94ae;
+}
+.handoff-fragment .ph {
+  font-size: 19px;
+  color: var(--blue);
+}
+.handoff-fragment .fragment-open {
+  background: #fbf7ef;
+  border-color: #ece1cd;
+  color: #72551f;
+  transform: translateX(-16px);
+}
+.connected-fragments > span {
+  background: #fff;
+  color: var(--blue);
+}
+.problem-source-note {
+  font-size: 11px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+.story-stick {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 25px;
+  padding: 36px 30px 70px;
+  justify-content: center;
+  min-height: 100svh;
+}
+.story-copy h2 {
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.03;
+}
+.story-copy > p {
+  max-width: none;
+  margin: 14px auto 0;
+  font-size: 12px;
+}
+.story-caption {
+  margin: 18px auto 0;
+  min-height: 70px;
+  max-width: 570px;
+}
+.story-caption > span {
+  font-size: 17px;
+}
+.story-caption p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 6px;
+}
+.story-navigation {
+  justify-content: center;
+  margin-top: 14px;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.story-copy {
+  width: min(100%, 660px);
+}
+.journey-art {
+  width: 350px;
+  max-width: 75vw;
+}
+.journey-center {
+  width: 140px;
+  height: 140px;
+  gap: 8px;
+}
+.journey-center img {
+  width: 43px;
+  height: 43px;
+  border-radius: 13px;
+}
+.journey-center > span {
+  font-size: 11px;
+}
+.journey-center small {
+  font-size: 8px;
+}
+.journey-node {
+  width: 82px;
+  gap: 6px;
+}
+.journey-node > div {
+  width: 47px;
+  height: 47px;
+  border-radius: 16px;
+}
+.journey-node .ph {
+  font-size: 23px;
+}
+.journey-node span {
+  font-size: 9px;
+}
+.journey-proof {
+  bottom: -25px;
+  padding: 12px 18px;
+}
+.orbit-ring {
+  box-shadow:
+    0 0 0 25px #fff3,
+    0 0 0 50px #fff2;
+}
+.story-section {
+  overflow: clip;
+}
+.final-copy p {
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1600px) {
+  .hero-art {
+    height: 440px;
+    margin-top: 10px;
+  }
+  .hero-art .glass-sculpture {
+    width: 780px;
+    height: 520px;
+    top: -20px;
+  }
+  .hero-context {
+    top: 135px;
+  }
+}
+@media (max-width: 1050px) {
+  .hero-art {
+    width: 94vw;
+  }
+  .hero-context {
+    width: 170px;
+    top: 110px;
+  }
+  .hero-context > strong {
+    font-size: 20px;
+  }
+  .context-problem {
+    left: 20px;
+  }
+  .context-answer {
+    right: 20px;
+  }
+  .hero-art .glass-sculpture {
+    width: 580px;
+    height: 387px;
+  }
+  .hero .orbit-one {
+    left: 25%;
+    font-size: 10px;
+  }
+  .hero .orbit-two {
+    right: 20%;
+    font-size: 10px;
+  }
+  .problem-card {
+    grid-template-columns: 45px 1fr 200px;
+    padding: 35px 25px;
+    gap: 18px;
+  }
+  .problem-card h3 {
+    font-size: 27px;
+  }
+  .problem-card p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 800px) {
+  .hero-context {
+    width: 150px;
+    top: 130px;
+  }
+  .hero-context > strong {
+    font-size: 18px;
+  }
+  .hero-context p {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .hero-art .glass-sculpture {
+    width: 460px;
+    height: 307px;
+    top: 20px;
+  }
+  .hero .orbit-one {
+    left: 23%;
+    top: 25px;
+  }
+  .hero .orbit-two {
+    bottom: 10px;
+    right: 18%;
+  }
+  .hero .orbit-three {
+    left: 28%;
+    bottom: -30px;
+  }
+  .hero-bottom {
+    margin-top: 40px;
+  }
+  .hero-art {
+    height: 340px;
+  }
+  .hero {
+    height: auto;
+    min-height: 680px;
+    padding-top: 25px;
+  }
+  .hero h1 {
+    font-size: 52px;
+  }
+  .problem-section {
+    padding-top: 100px;
+  }
+  .problem-card {
+    position: relative;
+    top: auto !important;
+    margin-bottom: 55px;
+    grid-template-columns: 45px 1fr;
+  }
+  .handoff-fragment {
+    grid-column: 2;
+    transform: none;
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+  .handoff-fragment > span {
+    padding: 12px;
+  }
+  .problem-intro {
+    margin-bottom: 55px;
+  }
+  .problem-stack {
+    padding-bottom: 0;
+  }
+  .problem-intro p {
+    font-size: 12px;
+  }
+  .problem-card h3 {
+    font-size: 27px;
+  }
+  .problem-connection {
+    left: 50%;
+  }
+  .problem-source-note {
+    font-size: 10px;
+  }
+  .story-stick {
+    padding-top: 70px;
+    padding-bottom: 85px;
+  }
+  .story-navigation {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 640px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    padding-top: 26px;
+    padding-bottom: 30px;
+  }
+  .hero h1 {
+    font-size: clamp(26px, 8.6vw, 48px);
+    letter-spacing: -0.055em;
+    padding: 0 12px;
+    margin-top: 18px;
+  }
+  .hero-copy p {
+    font-size: 11px;
+    max-width: 270px;
+  }
+  .hero-art {
+    width: 100%;
+    height: 440px;
+    margin-top: 12px;
+  }
+  .hero-art .glass-sculpture {
+    width: 460px;
+    height: 307px;
+    top: 0;
+  }
+  .hero-context {
+    top: 315px;
+    left: 20px;
+    width: calc(50% - 35px);
+  }
+  .context-answer {
+    right: 20px;
+    left: auto;
+  }
+  .hero-context > span {
+    font-size: 9px;
+    margin-bottom: 7px;
+  }
+  .hero-context > strong {
+    font-size: 17px;
+  }
+  .hero-context p {
+    font-size: 10px;
+    margin-top: 9px;
+    line-height: 1.7;
+  }
+  .hero .orbit-one {
+    left: 15px;
+    top: 30px;
+    padding: 10px;
+  }
+  .hero .orbit-two {
+    right: 16px;
+    bottom: 165px;
+    padding: 10px;
+  }
+  .hero .orbit-three {
+    left: 28%;
+    bottom: 140px;
+    padding: 11px 13px;
+  }
+  .hero-bottom {
+    margin-top: 45px;
+    padding: 0 20px;
+    justify-content: center;
+  }
+  .hero-bottom > span {
+    display: none;
+  }
+  .hero-bottom .text-link {
+    font-size: 11px;
+  }
+  .hero .eyebrow {
+    font-size: 7px;
+    padding: 0 15px;
+  }
+  .problem-section {
+    padding: 90px 18px 70px;
+  }
+  .problem-intro h2 {
+    font-size: 40px;
+  }
+  .problem-intro p {
+    font-size: 12px;
+  }
+  .problem-intro p br {
+    display: none;
+  }
+  .problem-card {
+    padding: 24px 20px;
+    display: block;
+    min-height: 0;
+  }
+  .problem-symbol {
+    margin-bottom: 20px;
+    width: 44px;
+    height: 44px;
+  }
+  .problem-card-copy > span {
+    font-size: 10px;
+  }
+  .problem-card h3 {
+    font-size: 27px;
+  }
+  .problem-card p {
+    font-size: 12px;
+  }
+  .problem-card a {
+    font-size: 10px;
+    margin-top: 17px;
+  }
+  .handoff-fragment {
+    margin-top: 25px;
+  }
+  .handoff-fragment .fragment-open {
+    transform: none;
+  }
+  .problem-stack {
+    margin: 0 4px;
+  }
+  .story-stick {
+    padding-left: 18px;
+    padding-right: 18px;
+    gap: 30px;
+  }
+  .story-copy h2 {
+    font-size: 39px;
+  }
+  .story-copy > p {
+    max-width: 270px;
+  }
+  .story-caption {
+    max-width: 320px;
+  }
+  .story-caption p {
+    font-size: 11px;
+  }
+  .story-navigation button {
+    font-size: 9px;
+    padding: 8px 11px;
+  }
+  .journey-art {
+    width: 310px;
+    max-width: 88vw;
+  }
+  .journey-center {
+    width: 125px;
+    height: 125px;
+  }
+  .journey-center > span {
+    font-size: 10px;
+  }
+  .journey-node {
+    width: 76px;
+  }
+  .journey-node span {
+    font-size: 8px;
+  }
+  .journey-node > div {
+    width: 44px;
+    height: 44px;
+  }
+  .journey-proof {
+    font-size: 9px;
+    padding: 12px;
+  }
+  .final-copy .button {
+    font-size: 12px;
+    gap: 15px;
+  }
+  .final-copy p {
+    max-width: 280px;
+    font-size: 12px;
+  }
+  .clarity-heading h2 {
+    font-size: 39px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .problem-card {
+    position: relative;
+    top: auto !important;
+  }
+  .problem-connection span {
+    transform: none !important;
+  }
+  .hero-context,
+  .problem-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .problem-card,
+  .solution-card {
+    background: #fff;
+    backdrop-filter: none;
+  }
+}
+
+@media (min-width: 801px) and (max-height: 800px) {
+  .hero {
+    min-height: 590px;
+  }
+  .hero-art {
+    height: 325px;
+  }
+  .hero-art .glass-sculpture {
+    width: 600px;
+    height: 400px;
+    top: -10px;
+  }
+  .hero-context {
+    top: 85px;
+  }
+  .hero .orbit-two {
+    bottom: 25px;
+  }
+  .hero .orbit-three {
+    bottom: 0;
+  }
+  .hero-bottom > span {
+    display: none;
+  }
+  .hero-bottom {
+    justify-content: center;
+    margin-top: 16px;
+  }
+}

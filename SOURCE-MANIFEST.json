@@ -1,0 +1,553 @@
+{
+  "web_source_commit": "8dda4191ede32ea45a4b32209c3ce9b89a49b6b1",
+  "files": [
+    {
+      "path": "web/.gitignore",
+      "sha256": "df5aa1ae498803666113b0384d1d8008f80217ba634f23ca238e8438baf8b35e"
+    },
+    {
+      "path": "web/.openai/hosting.json",
+      "sha256": "fc25b65a5fb562d225f6c0a9415b71f95f62fe2d11b836ce394135b20c3637c5"
+    },
+    {
+      "path": "web/README.md",
+      "sha256": "742a2d99ed8be39761d8e165715f6fe68d8fbfb20dae12e975f3b4303b1e8530"
+    },
+    {
+      "path": "web/VALIDATION.md",
+      "sha256": "81d8e1275f5a1ee643d38e25bc4a279bdfd9410c11681c2fdda90bfde093b4c0"
+    },
+    {
+      "path": "web/db/schema.js",
+      "sha256": "5ec917df7ca3196bc37ea651b26014ac972839bccb956cc500b310520dcb01eb"
+    },
+    {
+      "path": "web/docs/demo-ai-contract.md",
+      "sha256": "d486aeaf4b909a90eece6641e22cd2e86d0bac81a47a5999609aedca86ae530a"
+    },
+    {
+      "path": "web/drizzle.config.js",
+      "sha256": "26d395924570b1f2da3b18c29071a85cbc02254ed02ebc783e1fdee68b642b49"
+    },
+    {
+      "path": "web/drizzle/0000_team.sql",
+      "sha256": "47bfe5a49a5fbf369dc0a1b29605010a2f9615c51d459fbbc65386507481d5aa"
+    },
+    {
+      "path": "web/drizzle/meta/0000_snapshot.json",
+      "sha256": "2bb666cedd53dbbd73f7fc09c37d12ece508b109b97c3e3fb07d848a2acc017e"
+    },
+    {
+      "path": "web/drizzle/meta/_journal.json",
+      "sha256": "dd270f004a667ca59fb4d934dc2a43a937bbdeb1c91cc19b40ee5763829ae486"
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "566c95c48af77ba9398a8e36e0ecc7d52a409c8a66aa8428b7899aa7a76c7da8"
+    },
+    {
+      "path": "web/package-lock.json",
+      "sha256": "aea2bdcebf7867458622ede036fe3fe3d4618083b000e18c3a5f46354138fbf5"
+    },
+    {
+      "path": "web/package.json",
+      "sha256": "ed32d56e3c19d99be2e98aeaf5fda52699b61276521cac3947ab3f1e1b6aeeaa"
+    },
+    {
+      "path": "web/public/assets/careflow-glass.webp",
+      "sha256": "ee2d485dc09c0739ab9387024593212b78bed604f49db559d3a9295ce9f5dd09"
+    },
+    {
+      "path": "web/public/assets/careflow-workspace.png",
+      "sha256": "b553f0d35d7b645c4b027f21342d2cffdec5f01c1c02841ca16735a0279699fe"
+    },
+    {
+      "path": "web/public/assets/fonts/Manrope-OFL.txt",
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+    },
+    {
+      "path": "web/public/assets/fonts/Phosphor-LICENSE.txt",
+      "sha256": "81bb1bfd8e3730c19a3895ff4a82839980933504725960c52b1c207b29398f07"
+    },
+    {
+      "path": "web/public/assets/fonts/manrope-variable.woff",
+      "sha256": "00d8cae2797cd598cf23a74db98ae6cbdbe5f43adefbe0d6305c21d48a35ce2a"
+    },
+    {
+      "path": "web/public/assets/fonts/phosphor-careflow.woff",
+      "sha256": "0d0d9b117a4244a20e9cfa70adeac2d7a61198bb929fb34e18634935bf76bde5"
+    },
+    {
+      "path": "web/public/logo.svg",
+      "sha256": "ac11a0638ed10f42b1191e6622d0d0e5807a2c22f029db1415b004cba39ea026"
+    },
+    {
+      "path": "web/public/robots.txt",
+      "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95"
+    },
+    {
+      "path": "web/scripts/build-team.mjs",
+      "sha256": "94e312c8939b66949e98571d30e4ff72ba69f03cde6d54391b38e4020f0a7d51"
+    },
+    {
+      "path": "web/scripts/start-local.ps1",
+      "sha256": "7abd03ebbb264d29e1971cd035cc55d4109cecdf4c1b7dfe56c20876d17c874d"
+    },
+    {
+      "path": "web/scripts/stop-local.ps1",
+      "sha256": "b63f967720081c77597126365d8a98d31ad98e760275e44c84384dc0cf7e6d18"
+    },
+    {
+      "path": "web/server/ai-engine.js",
+      "sha256": "3b4e5c8fa7bf027b9feb365cc758aa5d337143fdfcc537da5f3ea74e40cfa112"
+    },
+    {
+      "path": "web/server/ai-workspace.js",
+      "sha256": "b7f17dc3a789e3056635bc7f54b6785a6a700e54ac7afc4b722a311aa5f96b39"
+    },
+    {
+      "path": "web/server/local.js",
+      "sha256": "292ab8b83f936cf0537822c582a26d054e204365997ada59055ebed63cf956d0"
+    },
+    {
+      "path": "web/server/sqlite-adapter.js",
+      "sha256": "adfe4186e55988863181ccbd41ab31bdf3f76ce1cf2aa94d2eb32f6e27adc234"
+    },
+    {
+      "path": "web/server/team-api.js",
+      "sha256": "0770a0f34c1f2da014872cc9d5c53e623ce942ce66da34699f5c8638350f5da7"
+    },
+    {
+      "path": "web/server/team-model.js",
+      "sha256": "886db82229c6b616a7e02daf0bac7fab34cb3ea59f925c939de320b2c6a76b5e"
+    },
+    {
+      "path": "web/server/worker.js",
+      "sha256": "04b2ad6a383284a8f8bfe86cf9402a882fbb3c6cdfd713c3260dbc7834a03979"
+    },
+    {
+      "path": "web/shared/ai-capabilities.js",
+      "sha256": "8ccdb10536f20a9865dfb214cf752ed2bdfcad3a00b3c8553250cc4a427c1b65"
+    },
+    {
+      "path": "web/shared/ai-tour.js",
+      "sha256": "f095dfe4533e70ee1a26654aa2a80070ef1275da675e2e13cdd7cce8a4d7402b"
+    },
+    {
+      "path": "web/shared/demo-papers.js",
+      "sha256": "fc1375d91e0bfdb66637358af19953158f58ede2a020ef8b934d1dd5010fbd9a"
+    },
+    {
+      "path": "web/src/ai-home.js",
+      "sha256": "eb69d816e922ec106f35d2af927a4302922c6d25437b5dc3a0b7ec8df742e0d1"
+    },
+    {
+      "path": "web/src/ai-intake-start.js",
+      "sha256": "ff6832216ec8787779c8dade3b6754b21601c5b60e3bf0c8d6a32ffe9b65dc6e"
+    },
+    {
+      "path": "web/src/ai-ui.js",
+      "sha256": "f3a69b6840a27f51f6c036167c06b979c0eb2f39e3fb5b0c12d4b4445432a3a1"
+    },
+    {
+      "path": "web/src/ai.css",
+      "sha256": "51e25389a1529a577b7faf2c4bbeb421538ce147fe78deb245ae4aa6053a7d86"
+    },
+    {
+      "path": "web/src/case-workflow.js",
+      "sha256": "50276126875e40291d58bf8b218f36e61edf4b115ffd82e9051bb755cb07ba9f"
+    },
+    {
+      "path": "web/src/fonts.css",
+      "sha256": "04e3c991c8671b93e8e7dc868211b0c6edee6de188d0a345ee7d7d99732e8bc6"
+    },
+    {
+      "path": "web/src/gateway.js",
+      "sha256": "36eceb95f9c4af57ba267b53564b6901c166f505cbfef51e4f8d58a2fb8f9196"
+    },
+    {
+      "path": "web/src/guide-content.js",
+      "sha256": "a1e4a21771001cb9efabd076383d32d91f41adaacc97f46ace533d334c053b53"
+    },
+    {
+      "path": "web/src/guide-model.js",
+      "sha256": "218201da643bee8b32065fcf00d76c309b3d7b23cf59e50006e16946b7a24a5f"
+    },
+    {
+      "path": "web/src/guide-playback.js",
+      "sha256": "62eb85d6ff9984b696f769db98d3f20d91775ea8df75665f517c2b0cdf48af87"
+    },
+    {
+      "path": "web/src/guide-ui.js",
+      "sha256": "5bbe285c2c99594711fa5af9dc091a2c783b5e7c92d91376d614c8580f6280a7"
+    },
+    {
+      "path": "web/src/guide.css",
+      "sha256": "992cef1a5d8734cadf8e3e90938a8f9e4ef78b23ea415a57669b892fe90c145a"
+    },
+    {
+      "path": "web/src/home-story.css",
+      "sha256": "7cc5523a4a460916f8d33b910401ec89966031011af4df500f6531f690cd8a5c"
+    },
+    {
+      "path": "web/src/home-story.js",
+      "sha256": "f57d8a3c8c23a9bb28e4d3b461c461fdc0217daa86c999cce183a3c7c6ec1fd0"
+    },
+    {
+      "path": "web/src/icons.css",
+      "sha256": "b056476968eec6cae4c508e8797b3c45536fa1aed8bceddb785d6a09f8858ba3"
+    },
+    {
+      "path": "web/src/intake.css",
+      "sha256": "df5853dd81338abbbaf9f12fe4a429a60b0d08e281ae7ebb41726e81f2c542cf"
+    },
+    {
+      "path": "web/src/intake.js",
+      "sha256": "1424c7cd974760ca4139f936e6b6d4314c46d8724badaf89410ed76465345179"
+    },
+    {
+      "path": "web/src/main.js",
+      "sha256": "e86b9731c04343e25185c5f5e14254face94db39a126adbba04c6cdd512784a6"
+    },
+    {
+      "path": "web/src/mira.css",
+      "sha256": "256fa1cbec8565ce1f13dbf9869d11132ba5d4e77580101626b11bf8fa233104"
+    },
+    {
+      "path": "web/src/styles.css",
+      "sha256": "19537078ebe68b44d2a4e7e04b5192f68b23e4b2eae2452ea4a24f238c9e51fe"
+    },
+    {
+      "path": "web/src/team-client.js",
+      "sha256": "b4d2e03d49d9154d66a28e84c10fe698e84b1cfe213f3ccf58a1f762f4e38d8d"
+    },
+    {
+      "path": "web/src/team-guide.js",
+      "sha256": "7c6e26c2697367eaafd27967bdd702f1df01075b192a872d4c0d98cdcb1547f5"
+    },
+    {
+      "path": "web/src/team-ui.js",
+      "sha256": "d09a98635fe23f6f0afd0930e46142fd48eef0ea1cde20126bd74fa491740e59"
+    },
+    {
+      "path": "web/src/team.css",
+      "sha256": "9decfa4acab7f884d8ffdfe67b5096a235e6e07ec1aabf9c804e45ea095c98c2"
+    },
+    {
+      "path": "web/src/walkthrough.css",
+      "sha256": "2d38d9a2566fab0f95652c7abf337fec3e359be92606f59e3ced43a6ec3ba696"
+    },
+    {
+      "path": "web/src/walkthrough.js",
+      "sha256": "de72a785d09d5851c38e097755ba12248131ab046e14d65c4a7e58f0b0b7dcba"
+    },
+    {
+      "path": "web/tests/ai-boundaries.test.js",
+      "sha256": "bf69e0ee843cde6f5cda2c87392309f1e28acac053621687f6c09d9af64b6c58"
+    },
+    {
+      "path": "web/tests/ai-intake-start.test.js",
+      "sha256": "d07d66a25b892387b358138e3d4765c9d944ec5f2dcef4fd940d92d70487ef41"
+    },
+    {
+      "path": "web/tests/ai-intake.test.js",
+      "sha256": "392f76f87a4d45259b79a8aff94693e3e48efbf16e1903d2df52668e572ec764"
+    },
+    {
+      "path": "web/tests/ai-sequence.test.js",
+      "sha256": "02dff09cc9fd29745c878a3e3520263d6f8e02a4137532b9032c6deaa3f8528c"
+    },
+    {
+      "path": "web/tests/ai-tour.test.js",
+      "sha256": "54d2df0a6575b77886d362ce6c1b0391aad235acbda111951b4de55e89c3afbe"
+    },
+    {
+      "path": "web/tests/guide.test.js",
+      "sha256": "1db38b5bfc0c5d06e1b2bbaeb6495b356e8d50f828f88ab42f4d9845661c194c"
+    },
+    {
+      "path": "web/tests/intake-workflow.test.js",
+      "sha256": "3b155bb2c9f2215565a14b8145b693392744e9e5e37aa965b01fd4e8ded8b1e7"
+    },
+    {
+      "path": "web/tests/playback.test.js",
+      "sha256": "dab2aa38165898c1403bf6133dd11cfc80cfad781465ef8d6c2ea770a40414fd"
+    },
+    {
+      "path": "web/tests/team-first-user.test.js",
+      "sha256": "529795ff5b976bcff90d4310fe32af587cf16b2494199e7ebcd9813982b618ed"
+    },
+    {
+      "path": "web/tests/team-presentation.test.js",
+      "sha256": "5fa4f29941168a523c8393aa6c44802c83f26e3efed9dfec2fe2b1036c3079f2"
+    },
+    {
+      "path": "web/tests/team.test.js",
+      "sha256": "d34ee823d10803809a01504acdad9eebd3abf6cd950cd6bf43129190f2e0b38f"
+    },
+    {
+      "path": "web/tests/viewer-isolation.test.js",
+      "sha256": "bd3bd909590d385c9b57159b7fe9ad8cee0ed400ae4bdb3eaa018bd525c8c252"
+    },
+    {
+      "path": "web/tests/walkthrough.test.js",
+      "sha256": "9292992ff945594ce004ed255ec6fbb06842b6290c095ea906cd8b3b3987d41e"
+    },
+    {
+      "path": "web/vite.config.js",
+      "sha256": "7d14d4db9081ac74c0098876dcca610a2fe799e8b117ae409f642110551fe5e0"
+    },
+    {
+      "path": "backend/.dockerignore",
+      "sha256": "ea56b1ee649d37d77609056e960fa208645d67ea8b1228b9ecdabdb7706b508d"
+    },
+    {
+      "path": "backend/.env.example",
+      "sha256": "6685fcdf292969d3bf3f3906e160e86f0f00e147b619b60db2a443adc5f4dc17"
+    },
+    {
+      "path": "backend/.gitignore",
+      "sha256": "43b956b2d037a45ab4d8c5356ada6080dabb851ceec489f21273a6e52aaf0c85"
+    },
+    {
+      "path": "backend/alembic.ini",
+      "sha256": "a9e7a5ac6e06de8300b7a895ca71445abb026e710cd0c8a5cd1be8ccf8fdcbf7"
+    },
+    {
+      "path": "backend/docker-compose.yml",
+      "sha256": "302f44495631d6dca2a3bd5f07ffbc0fee12b63212eb6472ea199f4ccb274eaa"
+    },
+    {
+      "path": "backend/Dockerfile",
+      "sha256": "6ebf06fc7932eb7356acf014e741f0e21d31e7b65568331cafc132e7aeed8e22"
+    },
+    {
+      "path": "backend/Makefile",
+      "sha256": "6c1dd19e42b4b9ce9c87cfe7328c1ac870590320bdd89202bb0d78c389cf2152"
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "sha256": "7736490f7af9cdf386ac4c2a4697a80e258ec1ae6e1b204e0387e3bc394aab85"
+    },
+    {
+      "path": "backend/README.md",
+      "sha256": "0de5481b85236b8864d98830fe1d247167e188519f91db640a184494339c3f9b"
+    },
+    {
+      "path": "backend/uv.lock",
+      "sha256": "47440c17770dca98003b4e01cdb8db3eabf588a37e4e86f3ecbbb4c78f76690c"
+    },
+    {
+      "path": "backend/docs/agent_contracts.md",
+      "sha256": "55042044c6a60b35c68d854443f495d98e84a8d7db2bd90fa602c7764ebf934f"
+    },
+    {
+      "path": "backend/docs/api_contracts.md",
+      "sha256": "87cd159e45b576ba1dac540fc26113f38d96149d5f705e5f7d8db5565378c588"
+    },
+    {
+      "path": "backend/docs/architecture.md",
+      "sha256": "5f2e290a37c44629c3b1cabb4fae1f055d9347e3f9212852615a66d6ec99c91a"
+    },
+    {
+      "path": "backend/docs/database.md",
+      "sha256": "85d87cb5d0cb77eff40676f64739daa19cc7124eb3db58adfef0c9c38add73d2"
+    },
+    {
+      "path": "backend/docs/demo_scenarios.md",
+      "sha256": "65d89225ce23af303a9e3a61147ce5433d85742782da796e96966a2242090543"
+    },
+    {
+      "path": "backend/docs/frontend_contracts.md",
+      "sha256": "8b4f69e031cd483fd30c470a91858db5275d088cdc13b4a395589820fdc4351b"
+    },
+    {
+      "path": "backend/docs/live-replay.txt",
+      "sha256": "891568fc4401108115fe72370f2bf1edccdf0d2803d1337fb759b262f3c02e43"
+    },
+    {
+      "path": "backend/docs/openapi.json",
+      "sha256": "5df7655e2494e999c905eb81ef3b2ff5a2d9ef8448c2e58701d9151ab41cd142"
+    },
+    {
+      "path": "backend/docs/original-specification.md",
+      "sha256": "f3086f08f5da3b6048651ff0f280184c828a25a8ac9dd3b7f413d34c1e573671"
+    },
+    {
+      "path": "backend/docs/security.md",
+      "sha256": "eaa5fc79ed3210fcbf3b21d03a3fab2de9070a26e1b0fd284609b853e2aebcb9"
+    },
+    {
+      "path": "backend/docs/test-results.xml",
+      "sha256": "c3af8bc27d1818c4ac779e7104fb8bbaac84ce8c6f8a39d11c80e34291a578e6"
+    },
+    {
+      "path": "backend/docs/validation.md",
+      "sha256": "562abd8af5ef2b56bcb00f36ce8e0022f2f7fa8da33038e07e98ab3a1526354f"
+    },
+    {
+      "path": "backend/docs/workflow_states.md",
+      "sha256": "b2bac09cae0ff49b62526b92407c65840e1c15facf7fc11566c5783cb5c11901"
+    },
+    {
+      "path": "backend/migrations/env.py",
+      "sha256": "22dd486b2cf869f7b1cb47f9f863daa8fd8461b86a2ab94931b3ca1b6b67a35e"
+    },
+    {
+      "path": "backend/migrations/script.py.mako",
+      "sha256": "bb4aec06244d1b8d74f06376f3ebbc9c5a00736db95acee99f21b0b7d26dabea"
+    },
+    {
+      "path": "backend/scripts/generate_benchmark.py",
+      "sha256": "f3cf98f1a32578bd46161fee58a72242a5a73caf852ab62f63c6b51147aa3901"
+    },
+    {
+      "path": "backend/scripts/prepare_local_database.py",
+      "sha256": "e206dc152b396222fa38b93c07f5e551ebd3042fe85b0e5b05847954adf27c94"
+    },
+    {
+      "path": "backend/scripts/replay_demo.py",
+      "sha256": "4ab1ccccca028faaf9905707f49a5226dda949c14d97e0b6c3b831ccb18dbdd8"
+    },
+    {
+      "path": "backend/scripts/start-local.ps1",
+      "sha256": "6f2af350a1320a7f6e7154529367efd5c06b08873c83255589c7af4e81307746"
+    },
+    {
+      "path": "backend/scripts/stop-local.ps1",
+      "sha256": "16ab271eecc1da510e75a2a22ac4398c5ecb8cdf9819cbe7a3fe5d59a52bd4ac"
+    },
+    {
+      "path": "backend/tests/conftest.py",
+      "sha256": "ceeb1780384074e332ba66ed20e8fd1697371c4d9f259100367ba769408a59fe"
+    },
+    {
+      "path": "backend/tests/test_assistant_benchmark.py",
+      "sha256": "3e07c8308e2e78c2f81ec8c489bc7db45251f4aca854a5a90526bc68c68491d4"
+    },
+    {
+      "path": "backend/tests/test_contracts.py",
+      "sha256": "7cd71f541a15bad9636997515041411b8caa0464b9d001703e15afe24ce7e170"
+    },
+    {
+      "path": "backend/tests/test_reliability.py",
+      "sha256": "8c6acdf39582e06a5f49d33c5b4de984f289f69812250badb3c93e7de66bebd9"
+    },
+    {
+      "path": "backend/tests/test_security.py",
+      "sha256": "1104641fa23289e9e7059313381e2442f8b519dd1a41d92d85f3eebe65d101bb"
+    },
+    {
+      "path": "backend/tests/test_workflow.py",
+      "sha256": "b644f42c896712c2aef5d78791bca31ff07831da4055910d0b03a933adf5b6ac"
+    },
+    {
+      "path": "backend/tests/fixtures/assistant_benchmark.json",
+      "sha256": "523552b0e4ed64a77671fd7d9229756e85565ff048a39d7e47987469112b09ec"
+    },
+    {
+      "path": "backend/src/careflow/agents.py",
+      "sha256": "cc556d3ba8edd029d0bf1412dbdad109c20859397d82750cadd2b36b103cd2ed"
+    },
+    {
+      "path": "backend/src/careflow/api.py",
+      "sha256": "790e219d065d8f68234a008823aa3e7b7daa869e7f467e3436cdda3db6e93cc3"
+    },
+    {
+      "path": "backend/src/careflow/approvals.py",
+      "sha256": "36f4ae0881e42a564669d324d5a5ae2d21f1190c1746b6a0a14c10c368196739"
+    },
+    {
+      "path": "backend/src/careflow/assistant.py",
+      "sha256": "dff736c2ba5c8b4e99a26dabbf6e4d8382c62ab2e09cdab60f9ccdc45f5c8665"
+    },
+    {
+      "path": "backend/src/careflow/config.py",
+      "sha256": "03d0358cf043518544898cf0c023872d08bcec651247fabe7ee55898d10e03e2"
+    },
+    {
+      "path": "backend/src/careflow/db.py",
+      "sha256": "de6b9c16a8b5dd2b485dd3180a923bc14be212a0d5a196fe78aa5c95a821aa89"
+    },
+    {
+      "path": "backend/src/careflow/demo.py",
+      "sha256": "a1d06b9f55218ade908906df7867c7d1e4e2167e5c2c9ad8e05113c0690f2f9a"
+    },
+    {
+      "path": "backend/src/careflow/documents.py",
+      "sha256": "5769ef155cfcf45cbd147413b47d5d4abf03a2647b6487b1d36266a4ffa97a06"
+    },
+    {
+      "path": "backend/src/careflow/events.py",
+      "sha256": "b7ffce08b168243a658e567acb7216483b2ac0ebf83518ee6768c7b447e08044"
+    },
+    {
+      "path": "backend/src/careflow/integrations.py",
+      "sha256": "b859aa362c15cc6336835204ec77f67c4b30cce48f731f2fd45f226310858659"
+    },
+    {
+      "path": "backend/src/careflow/main.py",
+      "sha256": "c8a3dcaa071581891bbffb2dabe7dbd385933aab2e5d3152877c66d74d2373ca"
+    },
+    {
+      "path": "backend/src/careflow/models.py",
+      "sha256": "c982b6de6c76a2a3a7b0b81110fae2ce91d5ddabc25a87844443645655a0df79"
+    },
+    {
+      "path": "backend/src/careflow/schemas.py",
+      "sha256": "566a075c86b84352deea776c5889b26ec403fd0b687b79f666ee7b4f3d3802fa"
+    },
+    {
+      "path": "backend/src/careflow/security.py",
+      "sha256": "b746457272c214c5a01a492b5662cd81767c1be3447941cbbf06ae8479744a6e"
+    },
+    {
+      "path": "backend/src/careflow/seed.py",
+      "sha256": "37053adfcebadf451d0923b9eb3004f2b8449b43a671dc106eb9238ab059ad1c"
+    },
+    {
+      "path": "backend/src/careflow/services.py",
+      "sha256": "33c35c9bc1bd057617c90f25229ff98f95bb1194df450f48e600ca1b407adf00"
+    },
+    {
+      "path": "backend/src/careflow/tools.py",
+      "sha256": "de0182c9209efe479d0b399c9e5951927b81accca314a74e993d106d94f36d5f"
+    },
+    {
+      "path": "backend/src/careflow/views.py",
+      "sha256": "471edc057020c44ab4f5399acda99ec41c59d30d1772bcf97332ea5da362ae71"
+    },
+    {
+      "path": "backend/src/careflow/voice.py",
+      "sha256": "f95534e2c6f2a45b5f1af47086c4ce793c4d7f6e26132526a367e35cbbea4eff"
+    },
+    {
+      "path": "backend/src/careflow/worker.py",
+      "sha256": "06747408a087e2117311338a247f5d6ff9e871b8bf45d3bc235eefc62d77995d"
+    },
+    {
+      "path": "backend/src/careflow/workflow.py",
+      "sha256": "f93dca9bb8ac1c44c815e13e5fb9899cde288d4b234af65d3719d042de26eeaa"
+    },
+    {
+      "path": "backend/src/careflow/__init__.py",
+      "sha256": "9a969f36dd21720edea4eaccc5affe1ddef810b251f25fb17b1da68272e2b650"
+    },
+    {
+      "path": "backend/migrations/versions/cf0002_immutable_proposals.py",
+      "sha256": "a4e940965f6543cd6dbf8cd85f22b8bab7956ae5652c7de79cf669e428512271"
+    },
+    {
+      "path": "backend/migrations/versions/f879d7c4dce3_initial_relational_schema.py",
+      "sha256": "7c934bf1f83ffade6c95e0e2741f55cb585d6e2d7fcc053e8eed347bcd660b1b"
+    }
+  ],
+  "excluded": [
+    "installed dependencies",
+    "environment secrets",
+    "runtime databases",
+    "generated builds",
+    "caches",
+    "generated patient document storage"
+  ]
+}
