@@ -1,14 +1,17 @@
 import asyncio
-from uuid import uuid4
+from uuid import UUID, uuid4
 
 import pytest
 from conftest import session_headers
-from sqlalchemy import func, select
+from fastapi import HTTPException
+from sqlalchemy import func, select, update
 from test_workflow import post
 
+from careflow.approvals import decide, get_proposal
 from careflow.config import settings
 from careflow.db import Session
-from careflow.models import Case, Job
+from careflow.models import Approval, Case, Job
+from careflow.security import Actor, load_case
 from careflow.seed import fixture_id
 from careflow.worker import drain
 
@@ -32,12 +35,94 @@ async def test_concurrent_approvals_queue_one_execution(client):
         assert (
             await db.scalar(
                 select(func.count())
+                .select_from(Approval)
+                .where(Approval.action_proposal_id == UUID(proposal_id))
+            )
+            == 1
+        )
+        assert (
+            await db.scalar(
+                select(func.count())
                 .select_from(Job)
                 .where(Job.idempotency_key == f"execute/{proposal_id}")
             )
             == 1
         )
     await drain()
+
+
+@pytest.mark.asyncio
+async def test_approval_reloads_proposal_previously_read_by_waiting_session(client):
+    admin = await session_headers(client)
+    response = await post(
+        client,
+        "/assistant/messages",
+        admin,
+        {"case_id": str(fixture_id("case/0/88")), "message": "Prepare follow-up"},
+    )
+    proposal_id = UUID(response["proposed_actions"][0]["proposal_id"])
+    actor = Actor(
+        id=fixture_id("user/0/demo_admin"),
+        tenant_id=fixture_id("tenant/0"),
+        role="demo_admin",
+        correlation_id=uuid4(),
+    )
+    async with Session.begin() as db:
+        # Keep the loaded object alive, as decide does before taking its locks.
+        cached = await get_proposal(db, actor, proposal_id)
+        assert cached.status == "AWAITING_APPROVAL"
+        await post(client, f"/approvals/{proposal_id}/approve", admin, {})
+        with pytest.raises(HTTPException) as conflict:
+            await decide(db, actor, proposal_id, "APPROVED")
+        assert conflict.value.status_code == 409
+        assert cached.status == "APPROVED"
+    async with Session() as db:
+        assert (
+            await db.scalar(
+                select(func.count())
+                .select_from(Job)
+                .where(Job.idempotency_key == f"execute/{proposal_id}")
+            )
+            == 1
+        )
+
+
+@pytest.mark.asyncio
+async def test_approval_reloads_case_version_previously_read_by_waiting_session(client):
+    admin = await session_headers(client)
+    case_id = fixture_id("case/0/89")
+    response = await post(
+        client,
+        "/assistant/messages",
+        admin,
+        {"case_id": str(case_id), "message": "Prepare follow-up"},
+    )
+    proposal_id = UUID(response["proposed_actions"][0]["proposal_id"])
+    actor = Actor(
+        id=fixture_id("user/0/demo_admin"),
+        tenant_id=fixture_id("tenant/0"),
+        role="demo_admin",
+        correlation_id=uuid4(),
+    )
+    async with Session.begin() as db:
+        cached = await load_case(db, actor, case_id)
+        previous_version = cached.version
+        async with Session.begin() as other:
+            await other.execute(
+                update(Case).where(Case.id == case_id).values(version=Case.version + 1)
+            )
+        proposal = await decide(db, actor, proposal_id, "APPROVED")
+        assert cached.version == previous_version + 1
+        assert proposal.status == "STALE"
+    async with Session() as db:
+        assert (
+            await db.scalar(
+                select(func.count())
+                .select_from(Job)
+                .where(Job.idempotency_key == f"execute/{proposal_id}")
+            )
+            == 0
+        )
 
 
 @pytest.mark.asyncio

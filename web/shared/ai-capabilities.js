@@ -8,7 +8,7 @@ export const aiCapabilities=[
  {id:'authorization',name:'Prepare the insurance request',permission:'work.insurance',before:'You find the plan rules and gather the papers.',after:'The demo matches a sample rule to the papers and builds a draft.',manual:15,review:5,rate:.6},
  {id:'response',name:'Read the insurer reply',permission:'work.insurance',before:'You read the letter and type the answer.',after:'The demo finds the answer and reference. You check and save.',manual:5,review:1.5,rate:.6},
  {id:'handoff',name:'Catch up on the case',permission:null,before:'You read the whole case before taking your turn.',after:'A short brief shows what changed and your next job.',manual:4,review:1,rate:2},
- {id:'ask',name:'Ask Mira about the case',permission:null,before:'You search screens and papers for an answer.',after:'Mira finds the saved facts and shows where they came from.',manual:4,review:1,rate:1},
+ {id:'ask',name:'Ask the Case answers agent',permission:null,before:'You search screens and papers for an answer.',after:'The Case answers agent finds saved facts and shows their sources.',manual:4,review:1,rate:1},
  {id:'denial',name:'Prepare a denied-claim reply',permission:'work.claims',before:'You read the rejection and collect papers again.',after:'The demo explains the saved reason and drafts a reply.',manual:12,review:5,rate:.1},
  {id:'followup',name:'Follow up and check the finish',permission:null,before:'You check old cases and write follow-ups by hand.',after:'The demo shows the hold-up, drafts a reminder, and checks the finish.',manual:5,review:2,rate:.3},
 ];

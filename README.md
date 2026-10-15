@@ -4,6 +4,8 @@ Complete source handoff for the fictional hospital case-management demonstration
 
 Published demo: https://careflow-ai-usman.adeena9282733.chatgpt.site/
 
+**15 October update:** this repository contains the newer agent explanations and walkthrough fixes. The existing hosted Site has not been updated with these changes. Run this version locally; GitHub Actions validates it but does not deploy it.
+
 ## What's included
 
 | Folder | Contents |
@@ -36,6 +38,8 @@ On Windows, `web/scripts/start-local.ps1` starts the same services in hidden pro
 
 For the presentation, choose **Start guided case**, then **Start the case**. The fictional referral is prepared automatically and waits for **Approve and create case**. Follow the highlighted staff actions through closure. Approval boxes and later saves still belong to the user.
 
+Use **AI agents** in the workspace header to explain all ten capabilities. Each card shows the old task, what the agent prepares, and what staff must check. During the guided case, Mira introduces the relevant agent at each step. The final results sheet lists the capabilities actually demonstrated. See the [walkthrough audit](web/docs/demo-audit-2026-10-15.md) for verified behavior and limits.
+
 ```sh
 npm run check
 npm test
@@ -67,9 +71,9 @@ The sample environment file has demo-only defaults, not real credentials. Never 
 
 ## Validation and source completeness
 
-`SOURCE-MANIFEST.json` lists SHA-256 hashes for all 74 current web source files and all 61 Python source/handoff files, including lockfiles, fixtures, documentation and migrations. The web snapshot matches published version 12, source commit `8dda4191ede32ea45a4b32209c3ce9b89a49b6b1`.
+`SOURCE-MANIFEST.json` lists SHA-256 hashes for the current web and Python source/handoff files, including lockfiles, fixtures, documentation and migrations. This update builds on published version 12, source commit `8dda4191ede32ea45a4b32209c3ce9b89a49b6b1`; it is a newer local/GitHub snapshot.
 
-The website passed 50 automated tests and its production build before publication. Backend historical validation and its limits are in [`backend/docs/validation.md`](backend/docs/validation.md). Older sections inside component documentation describe prior releases; this root document explains the current architecture and automatic opening.
+Current validation is recorded in the [15 October audit](web/docs/demo-audit-2026-10-15.md). Backend historical validation and its limits are in [`backend/docs/validation.md`](backend/docs/validation.md). Older sections inside component documentation describe prior releases; this root document explains the current architecture and automatic opening.
 
 GitHub Actions validates the web build and runs backend checks and tests against an isolated PostgreSQL test database. It does not publish the site or access production data.
 

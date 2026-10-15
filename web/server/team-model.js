@@ -159,7 +159,16 @@ export function mutate(original,actorId,path,body,at=new Date().toISOString()){
    }else if(action==='share_report'){
     c.report_recipient=text(body.recipient,'the sample report recipient',150);c.report_status='Shared';assign(s,c,'CLAIM');audit(s,u,c,'Report shared',`Recorded sample handoff to ${c.report_recipient}. No email sent.`,at);
    }else if(action==='submit_claim'){
-    if(c.report_status!=='Shared')throw new Problem('Finish and share the report before billing.');c.claim_reference=text(body.reference,'the claim reference',120);const amount=Number(body.amount);if(!Number.isFinite(amount)||amount<=0||amount>1e7)throw new Problem('Enter a positive sample claim amount.');c.claim_amount=amount;c.claim_currency=choice(body.currency||'USD',['USD','AED','PKR','SAR','GBP','EUR'],'currency');c.claim_status='Submitted';c.blocker='';assign(s,c,'PAYMENT');audit(s,u,c,'Claim submitted',`Sample claim ${c.claim_reference}. No external submission.`,at);
+    if(c.report_status!=='Shared')throw new Problem('Finish and share the report before billing.');
+    // Older clients may omit a correction. Supplied corrections are retained as
+    // claims-only history evidence, so a later payer answer cannot overwrite them.
+    let correctionNote;
+    if(body.correction_note!==undefined){
+     if(c.stage!=='CLAIM_FOLLOWUP')throw new Problem('A correction note belongs to a denied-claim resubmission.');
+     if(typeof body.correction_note!=='string')throw new Problem('Enter the verified claim correction as text.');
+     correctionNote=text(body.correction_note,'the verified claim correction',1000);
+    }
+    c.claim_reference=text(body.reference,'the claim reference',120);const amount=Number(body.amount);if(!Number.isFinite(amount)||amount<=0||amount>1e7)throw new Problem('Enter a positive sample claim amount.');c.claim_amount=amount;c.claim_currency=choice(body.currency||'USD',['USD','AED','PKR','SAR','GBP','EUR'],'currency');c.claim_status='Submitted';c.blocker='';assign(s,c,'PAYMENT');audit(s,u,c,'Claim submitted',`Sample claim ${c.claim_reference}. No external submission.`,at,correctionNote?{evidence:correctionNote,evidence_scope:'work.claims'}:{});
    }else if(action==='payment_answer'){
     c.claim_status=choice(body.status,['Pending','Paid','Denied'],'claim answer');c.payment_reference=text(body.reference,'the payment or claim response reference',120);c.payment_evidence=text(body.evidence,'the sample payer response',1000);
     (c.claim_responses??=[]).push({status:c.claim_status,reference:c.payment_reference,evidence:c.payment_evidence,claim_reference:c.claim_reference,amount:c.claim_amount,currency:c.claim_currency,actor:u.name,at});

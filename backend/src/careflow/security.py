@@ -109,7 +109,9 @@ async def load_case(db: AsyncSession, actor: Actor, case_id: UUID, lock: bool = 
         raise HTTPException(403, "Agent case scope violation")
     q = select(Case).where(Case.id == case_id, Case.tenant_id == actor.tenant_id)
     if lock:
-        q = q.with_for_update()
+        # Refresh a case read before locking so version checks use the latest
+        # committed state, including changes made while this request waited.
+        q = q.with_for_update().execution_options(populate_existing=True)
     case = await db.scalar(q)
     if case is None:
         raise HTTPException(404, "Case not found")

@@ -1,6 +1,251 @@
 {
-  "web_source_commit": "8dda4191ede32ea45a4b32209c3ce9b89a49b6b1",
+  "web_base_site_commit": "8dda4191ede32ea45a4b32209c3ce9b89a49b6b1",
+  "snapshot": "Local and GitHub agent demo update, 15 October 2026; not yet deployed to Sites",
   "files": [
+    {
+      "path": "backend/.dockerignore",
+      "sha256": "ea56b1ee649d37d77609056e960fa208645d67ea8b1228b9ecdabdb7706b508d"
+    },
+    {
+      "path": "backend/.env.example",
+      "sha256": "6685fcdf292969d3bf3f3906e160e86f0f00e147b619b60db2a443adc5f4dc17"
+    },
+    {
+      "path": "backend/.gitignore",
+      "sha256": "43b956b2d037a45ab4d8c5356ada6080dabb851ceec489f21273a6e52aaf0c85"
+    },
+    {
+      "path": "backend/alembic.ini",
+      "sha256": "a9e7a5ac6e06de8300b7a895ca71445abb026e710cd0c8a5cd1be8ccf8fdcbf7"
+    },
+    {
+      "path": "backend/docker-compose.yml",
+      "sha256": "302f44495631d6dca2a3bd5f07ffbc0fee12b63212eb6472ea199f4ccb274eaa"
+    },
+    {
+      "path": "backend/Dockerfile",
+      "sha256": "6ebf06fc7932eb7356acf014e741f0e21d31e7b65568331cafc132e7aeed8e22"
+    },
+    {
+      "path": "backend/docs/agent_contracts.md",
+      "sha256": "55042044c6a60b35c68d854443f495d98e84a8d7db2bd90fa602c7764ebf934f"
+    },
+    {
+      "path": "backend/docs/api_contracts.md",
+      "sha256": "87cd159e45b576ba1dac540fc26113f38d96149d5f705e5f7d8db5565378c588"
+    },
+    {
+      "path": "backend/docs/architecture.md",
+      "sha256": "5f2e290a37c44629c3b1cabb4fae1f055d9347e3f9212852615a66d6ec99c91a"
+    },
+    {
+      "path": "backend/docs/database.md",
+      "sha256": "85d87cb5d0cb77eff40676f64739daa19cc7124eb3db58adfef0c9c38add73d2"
+    },
+    {
+      "path": "backend/docs/demo_scenarios.md",
+      "sha256": "65d89225ce23af303a9e3a61147ce5433d85742782da796e96966a2242090543"
+    },
+    {
+      "path": "backend/docs/frontend_contracts.md",
+      "sha256": "8b4f69e031cd483fd30c470a91858db5275d088cdc13b4a395589820fdc4351b"
+    },
+    {
+      "path": "backend/docs/live-replay.txt",
+      "sha256": "891568fc4401108115fe72370f2bf1edccdf0d2803d1337fb759b262f3c02e43"
+    },
+    {
+      "path": "backend/docs/openapi.json",
+      "sha256": "5df7655e2494e999c905eb81ef3b2ff5a2d9ef8448c2e58701d9151ab41cd142"
+    },
+    {
+      "path": "backend/docs/original-specification.md",
+      "sha256": "f3086f08f5da3b6048651ff0f280184c828a25a8ac9dd3b7f413d34c1e573671"
+    },
+    {
+      "path": "backend/docs/security.md",
+      "sha256": "eaa5fc79ed3210fcbf3b21d03a3fab2de9070a26e1b0fd284609b853e2aebcb9"
+    },
+    {
+      "path": "backend/docs/test-results.xml",
+      "sha256": "c3af8bc27d1818c4ac779e7104fb8bbaac84ce8c6f8a39d11c80e34291a578e6"
+    },
+    {
+      "path": "backend/docs/validation.md",
+      "sha256": "562abd8af5ef2b56bcb00f36ce8e0022f2f7fa8da33038e07e98ab3a1526354f"
+    },
+    {
+      "path": "backend/docs/workflow_states.md",
+      "sha256": "b2bac09cae0ff49b62526b92407c65840e1c15facf7fc11566c5783cb5c11901"
+    },
+    {
+      "path": "backend/Makefile",
+      "sha256": "6c1dd19e42b4b9ce9c87cfe7328c1ac870590320bdd89202bb0d78c389cf2152"
+    },
+    {
+      "path": "backend/migrations/env.py",
+      "sha256": "22dd486b2cf869f7b1cb47f9f863daa8fd8461b86a2ab94931b3ca1b6b67a35e"
+    },
+    {
+      "path": "backend/migrations/script.py.mako",
+      "sha256": "bb4aec06244d1b8d74f06376f3ebbc9c5a00736db95acee99f21b0b7d26dabea"
+    },
+    {
+      "path": "backend/migrations/versions/cf0002_immutable_proposals.py",
+      "sha256": "a4e940965f6543cd6dbf8cd85f22b8bab7956ae5652c7de79cf669e428512271"
+    },
+    {
+      "path": "backend/migrations/versions/f879d7c4dce3_initial_relational_schema.py",
+      "sha256": "7c934bf1f83ffade6c95e0e2741f55cb585d6e2d7fcc053e8eed347bcd660b1b"
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "sha256": "7736490f7af9cdf386ac4c2a4697a80e258ec1ae6e1b204e0387e3bc394aab85"
+    },
+    {
+      "path": "backend/README.md",
+      "sha256": "0de5481b85236b8864d98830fe1d247167e188519f91db640a184494339c3f9b"
+    },
+    {
+      "path": "backend/scripts/generate_benchmark.py",
+      "sha256": "f3cf98f1a32578bd46161fee58a72242a5a73caf852ab62f63c6b51147aa3901"
+    },
+    {
+      "path": "backend/scripts/prepare_local_database.py",
+      "sha256": "e206dc152b396222fa38b93c07f5e551ebd3042fe85b0e5b05847954adf27c94"
+    },
+    {
+      "path": "backend/scripts/replay_demo.py",
+      "sha256": "4ab1ccccca028faaf9905707f49a5226dda949c14d97e0b6c3b831ccb18dbdd8"
+    },
+    {
+      "path": "backend/scripts/start-local.ps1",
+      "sha256": "6f2af350a1320a7f6e7154529367efd5c06b08873c83255589c7af4e81307746"
+    },
+    {
+      "path": "backend/scripts/stop-local.ps1",
+      "sha256": "16ab271eecc1da510e75a2a22ac4398c5ecb8cdf9819cbe7a3fe5d59a52bd4ac"
+    },
+    {
+      "path": "backend/src/careflow/__init__.py",
+      "sha256": "9a969f36dd21720edea4eaccc5affe1ddef810b251f25fb17b1da68272e2b650"
+    },
+    {
+      "path": "backend/src/careflow/agents.py",
+      "sha256": "cc556d3ba8edd029d0bf1412dbdad109c20859397d82750cadd2b36b103cd2ed"
+    },
+    {
+      "path": "backend/src/careflow/api.py",
+      "sha256": "790e219d065d8f68234a008823aa3e7b7daa869e7f467e3436cdda3db6e93cc3"
+    },
+    {
+      "path": "backend/src/careflow/approvals.py",
+      "sha256": "bdef25da054bee52d0ebb528c4210b8a666de61ba2096c497d9be1f6bc85b912"
+    },
+    {
+      "path": "backend/src/careflow/assistant.py",
+      "sha256": "dff736c2ba5c8b4e99a26dabbf6e4d8382c62ab2e09cdab60f9ccdc45f5c8665"
+    },
+    {
+      "path": "backend/src/careflow/config.py",
+      "sha256": "03d0358cf043518544898cf0c023872d08bcec651247fabe7ee55898d10e03e2"
+    },
+    {
+      "path": "backend/src/careflow/db.py",
+      "sha256": "de6b9c16a8b5dd2b485dd3180a923bc14be212a0d5a196fe78aa5c95a821aa89"
+    },
+    {
+      "path": "backend/src/careflow/demo.py",
+      "sha256": "a1d06b9f55218ade908906df7867c7d1e4e2167e5c2c9ad8e05113c0690f2f9a"
+    },
+    {
+      "path": "backend/src/careflow/documents.py",
+      "sha256": "5769ef155cfcf45cbd147413b47d5d4abf03a2647b6487b1d36266a4ffa97a06"
+    },
+    {
+      "path": "backend/src/careflow/events.py",
+      "sha256": "b7ffce08b168243a658e567acb7216483b2ac0ebf83518ee6768c7b447e08044"
+    },
+    {
+      "path": "backend/src/careflow/integrations.py",
+      "sha256": "b859aa362c15cc6336835204ec77f67c4b30cce48f731f2fd45f226310858659"
+    },
+    {
+      "path": "backend/src/careflow/main.py",
+      "sha256": "c8a3dcaa071581891bbffb2dabe7dbd385933aab2e5d3152877c66d74d2373ca"
+    },
+    {
+      "path": "backend/src/careflow/models.py",
+      "sha256": "c982b6de6c76a2a3a7b0b81110fae2ce91d5ddabc25a87844443645655a0df79"
+    },
+    {
+      "path": "backend/src/careflow/schemas.py",
+      "sha256": "566a075c86b84352deea776c5889b26ec403fd0b687b79f666ee7b4f3d3802fa"
+    },
+    {
+      "path": "backend/src/careflow/security.py",
+      "sha256": "25005b4185879b98e875e4a008dfc1f11704bff07d2167e5a50cf93c88951948"
+    },
+    {
+      "path": "backend/src/careflow/seed.py",
+      "sha256": "37053adfcebadf451d0923b9eb3004f2b8449b43a671dc106eb9238ab059ad1c"
+    },
+    {
+      "path": "backend/src/careflow/services.py",
+      "sha256": "33c35c9bc1bd057617c90f25229ff98f95bb1194df450f48e600ca1b407adf00"
+    },
+    {
+      "path": "backend/src/careflow/tools.py",
+      "sha256": "de0182c9209efe479d0b399c9e5951927b81accca314a74e993d106d94f36d5f"
+    },
+    {
+      "path": "backend/src/careflow/views.py",
+      "sha256": "471edc057020c44ab4f5399acda99ec41c59d30d1772bcf97332ea5da362ae71"
+    },
+    {
+      "path": "backend/src/careflow/voice.py",
+      "sha256": "f95534e2c6f2a45b5f1af47086c4ce793c4d7f6e26132526a367e35cbbea4eff"
+    },
+    {
+      "path": "backend/src/careflow/worker.py",
+      "sha256": "06747408a087e2117311338a247f5d6ff9e871b8bf45d3bc235eefc62d77995d"
+    },
+    {
+      "path": "backend/src/careflow/workflow.py",
+      "sha256": "f93dca9bb8ac1c44c815e13e5fb9899cde288d4b234af65d3719d042de26eeaa"
+    },
+    {
+      "path": "backend/tests/conftest.py",
+      "sha256": "ceeb1780384074e332ba66ed20e8fd1697371c4d9f259100367ba769408a59fe"
+    },
+    {
+      "path": "backend/tests/fixtures/assistant_benchmark.json",
+      "sha256": "523552b0e4ed64a77671fd7d9229756e85565ff048a39d7e47987469112b09ec"
+    },
+    {
+      "path": "backend/tests/test_assistant_benchmark.py",
+      "sha256": "3e07c8308e2e78c2f81ec8c489bc7db45251f4aca854a5a90526bc68c68491d4"
+    },
+    {
+      "path": "backend/tests/test_contracts.py",
+      "sha256": "7cd71f541a15bad9636997515041411b8caa0464b9d001703e15afe24ce7e170"
+    },
+    {
+      "path": "backend/tests/test_reliability.py",
+      "sha256": "1b152b302f56959a73709e6eee7281896860db3867075f4bee93eb5a5a7e826e"
+    },
+    {
+      "path": "backend/tests/test_security.py",
+      "sha256": "1104641fa23289e9e7059313381e2442f8b519dd1a41d92d85f3eebe65d101bb"
+    },
+    {
+      "path": "backend/tests/test_workflow.py",
+      "sha256": "b644f42c896712c2aef5d78791bca31ff07831da4055910d0b03a933adf5b6ac"
+    },
+    {
+      "path": "backend/uv.lock",
+      "sha256": "47440c17770dca98003b4e01cdb8db3eabf588a37e4e86f3ecbbb4c78f76690c"
+    },
     {
       "path": "web/.gitignore",
       "sha256": "df5aa1ae498803666113b0384d1d8008f80217ba634f23ca238e8438baf8b35e"
@@ -8,14 +253,6 @@
     {
       "path": "web/.openai/hosting.json",
       "sha256": "fc25b65a5fb562d225f6c0a9415b71f95f62fe2d11b836ce394135b20c3637c5"
-    },
-    {
-      "path": "web/README.md",
-      "sha256": "742a2d99ed8be39761d8e165715f6fe68d8fbfb20dae12e975f3b4303b1e8530"
-    },
-    {
-      "path": "web/VALIDATION.md",
-      "sha256": "81d8e1275f5a1ee643d38e25bc4a279bdfd9410c11681c2fdda90bfde093b4c0"
     },
     {
       "path": "web/db/schema.js",
@@ -26,6 +263,10 @@
       "sha256": "d486aeaf4b909a90eece6641e22cd2e86d0bac81a47a5999609aedca86ae530a"
     },
     {
+      "path": "web/docs/demo-audit-2026-10-15.md",
+      "sha256": "e742d86f45593845fbd78ecc76e5c03585ca9529aca5c89dcfdd9158269c859a"
+    },
+    {
       "path": "web/drizzle.config.js",
       "sha256": "26d395924570b1f2da3b18c29071a85cbc02254ed02ebc783e1fdee68b642b49"
     },
@@ -34,12 +275,12 @@
       "sha256": "47bfe5a49a5fbf369dc0a1b29605010a2f9615c51d459fbbc65386507481d5aa"
     },
     {
-      "path": "web/drizzle/meta/0000_snapshot.json",
-      "sha256": "2bb666cedd53dbbd73f7fc09c37d12ece508b109b97c3e3fb07d848a2acc017e"
-    },
-    {
       "path": "web/drizzle/meta/_journal.json",
       "sha256": "dd270f004a667ca59fb4d934dc2a43a937bbdeb1c91cc19b40ee5763829ae486"
+    },
+    {
+      "path": "web/drizzle/meta/0000_snapshot.json",
+      "sha256": "2bb666cedd53dbbd73f7fc09c37d12ece508b109b97c3e3fb07d848a2acc017e"
     },
     {
       "path": "web/index.html",
@@ -51,7 +292,7 @@
     },
     {
       "path": "web/package.json",
-      "sha256": "ed32d56e3c19d99be2e98aeaf5fda52699b61276521cac3947ab3f1e1b6aeeaa"
+      "sha256": "3bc3206b15186a35bc713068ff43b594a2ae84494505feba0ec6f762c8bd184d"
     },
     {
       "path": "web/public/assets/careflow-glass.webp",
@@ -66,10 +307,6 @@
       "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
     },
     {
-      "path": "web/public/assets/fonts/Phosphor-LICENSE.txt",
-      "sha256": "81bb1bfd8e3730c19a3895ff4a82839980933504725960c52b1c207b29398f07"
-    },
-    {
       "path": "web/public/assets/fonts/manrope-variable.woff",
       "sha256": "00d8cae2797cd598cf23a74db98ae6cbdbe5f43adefbe0d6305c21d48a35ce2a"
     },
@@ -78,12 +315,20 @@
       "sha256": "0d0d9b117a4244a20e9cfa70adeac2d7a61198bb929fb34e18634935bf76bde5"
     },
     {
+      "path": "web/public/assets/fonts/Phosphor-LICENSE.txt",
+      "sha256": "81bb1bfd8e3730c19a3895ff4a82839980933504725960c52b1c207b29398f07"
+    },
+    {
       "path": "web/public/logo.svg",
       "sha256": "ac11a0638ed10f42b1191e6622d0d0e5807a2c22f029db1415b004cba39ea026"
     },
     {
       "path": "web/public/robots.txt",
       "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95"
+    },
+    {
+      "path": "web/README.md",
+      "sha256": "7dd7c39e021f5a628e3f0d2ecc2c061077beecd0f3940b7fe35c43d530507071"
     },
     {
       "path": "web/scripts/build-team.mjs",
@@ -119,27 +364,39 @@
     },
     {
       "path": "web/server/team-model.js",
-      "sha256": "886db82229c6b616a7e02daf0bac7fab34cb3ea59f925c939de320b2c6a76b5e"
+      "sha256": "fce499e635ba574a594fbbd3236468d425747814500ce2134b09afff23c51bd8"
     },
     {
       "path": "web/server/worker.js",
       "sha256": "04b2ad6a383284a8f8bfe86cf9402a882fbb3c6cdfd713c3260dbc7834a03979"
     },
     {
+      "path": "web/shared/agent-guide.js",
+      "sha256": "5a8c78b4ccf7d2abd177c91de33cb52fb26d7f1dac1e915d5cfa198314e04475"
+    },
+    {
+      "path": "web/shared/agent-review.js",
+      "sha256": "d804e5ef6e789391aaf333a58d982a97585cf53c966ab61d0a3ab770f5438cdb"
+    },
+    {
       "path": "web/shared/ai-capabilities.js",
-      "sha256": "8ccdb10536f20a9865dfb214cf752ed2bdfcad3a00b3c8553250cc4a427c1b65"
+      "sha256": "7f2bd7fbf7f24031a7762602dc1c7a1d48152e077293121bb8d1a67d7c641e75"
     },
     {
       "path": "web/shared/ai-tour.js",
-      "sha256": "f095dfe4533e70ee1a26654aa2a80070ef1275da675e2e13cdd7cce8a4d7402b"
+      "sha256": "b867a7454120998fde6995d3c38b8a980bc84cb70a02b0a6be65a0e7d21a53dd"
     },
     {
       "path": "web/shared/demo-papers.js",
       "sha256": "fc1375d91e0bfdb66637358af19953158f58ede2a020ef8b934d1dd5010fbd9a"
     },
     {
+      "path": "web/src/agent-explainer.js",
+      "sha256": "ecd20fe8ffde5d688e3b0469549b6e6093c6afef2160d3b344693f3b7f1a3f34"
+    },
+    {
       "path": "web/src/ai-home.js",
-      "sha256": "eb69d816e922ec106f35d2af927a4302922c6d25437b5dc3a0b7ec8df742e0d1"
+      "sha256": "39bd635bd8023618e611bfaa71c777e9f5da253d46a5e4d065a19a8810de365d"
     },
     {
       "path": "web/src/ai-intake-start.js",
@@ -147,11 +404,11 @@
     },
     {
       "path": "web/src/ai-ui.js",
-      "sha256": "f3a69b6840a27f51f6c036167c06b979c0eb2f39e3fb5b0c12d4b4445432a3a1"
+      "sha256": "7a25165576f8bf735b3d84eb12e7a9fa0b341614a5a96b9e5bad6367f845c5ae"
     },
     {
       "path": "web/src/ai.css",
-      "sha256": "51e25389a1529a577b7faf2c4bbeb421538ce147fe78deb245ae4aa6053a7d86"
+      "sha256": "da27fdf40ed90f955fdf1d282333b0014eacdfe1a054ed5f57442b1e4138010e"
     },
     {
       "path": "web/src/case-workflow.js",
@@ -207,7 +464,7 @@
     },
     {
       "path": "web/src/main.js",
-      "sha256": "e86b9731c04343e25185c5f5e14254face94db39a126adbba04c6cdd512784a6"
+      "sha256": "e56105bf7af82f37d99efc5952e089be5b85610d11b6bbc468c22317714cdd5e"
     },
     {
       "path": "web/src/mira.css",
@@ -223,11 +480,11 @@
     },
     {
       "path": "web/src/team-guide.js",
-      "sha256": "7c6e26c2697367eaafd27967bdd702f1df01075b192a872d4c0d98cdcb1547f5"
+      "sha256": "cb0bb6094be0a01e7bbbd289b175b16d52bc9c3c70f6a59241cd2d1ec5746578"
     },
     {
       "path": "web/src/team-ui.js",
-      "sha256": "d09a98635fe23f6f0afd0930e46142fd48eef0ea1cde20126bd74fa491740e59"
+      "sha256": "ed573a8a079315745391113f0acb709dc8a8388f55228973a3aa66af21b01e11"
     },
     {
       "path": "web/src/team.css",
@@ -240,6 +497,10 @@
     {
       "path": "web/src/walkthrough.js",
       "sha256": "de72a785d09d5851c38e097755ba12248131ab046e14d65c4a7e58f0b0b7dcba"
+    },
+    {
+      "path": "web/tests/agent-review.test.js",
+      "sha256": "e6fdb439fb3dbacfbb94aa790e1b34768f4e6da89707f2a9f4e896b81e65f529"
     },
     {
       "path": "web/tests/ai-boundaries.test.js",
@@ -259,7 +520,7 @@
     },
     {
       "path": "web/tests/ai-tour.test.js",
-      "sha256": "54d2df0a6575b77886d362ce6c1b0391aad235acbda111951b4de55e89c3afbe"
+      "sha256": "8fb07071ec6b5b0b0d311adf73b1795092b5b0f4ef083a17a6f38cf19044b5e9"
     },
     {
       "path": "web/tests/guide.test.js",
@@ -272,6 +533,10 @@
     {
       "path": "web/tests/playback.test.js",
       "sha256": "dab2aa38165898c1403bf6133dd11cfc80cfad781465ef8d6c2ea770a40414fd"
+    },
+    {
+      "path": "web/tests/team-claim-correction.test.js",
+      "sha256": "742f32ee9d7acd017be8de04c2d007e3768976596773ccb8ad758bfc517a0748"
     },
     {
       "path": "web/tests/team-first-user.test.js",
@@ -294,260 +559,12 @@
       "sha256": "9292992ff945594ce004ed255ec6fbb06842b6290c095ea906cd8b3b3987d41e"
     },
     {
+      "path": "web/VALIDATION.md",
+      "sha256": "81d8e1275f5a1ee643d38e25bc4a279bdfd9410c11681c2fdda90bfde093b4c0"
+    },
+    {
       "path": "web/vite.config.js",
       "sha256": "7d14d4db9081ac74c0098876dcca610a2fe799e8b117ae409f642110551fe5e0"
-    },
-    {
-      "path": "backend/.dockerignore",
-      "sha256": "ea56b1ee649d37d77609056e960fa208645d67ea8b1228b9ecdabdb7706b508d"
-    },
-    {
-      "path": "backend/.env.example",
-      "sha256": "6685fcdf292969d3bf3f3906e160e86f0f00e147b619b60db2a443adc5f4dc17"
-    },
-    {
-      "path": "backend/.gitignore",
-      "sha256": "43b956b2d037a45ab4d8c5356ada6080dabb851ceec489f21273a6e52aaf0c85"
-    },
-    {
-      "path": "backend/alembic.ini",
-      "sha256": "a9e7a5ac6e06de8300b7a895ca71445abb026e710cd0c8a5cd1be8ccf8fdcbf7"
-    },
-    {
-      "path": "backend/docker-compose.yml",
-      "sha256": "302f44495631d6dca2a3bd5f07ffbc0fee12b63212eb6472ea199f4ccb274eaa"
-    },
-    {
-      "path": "backend/Dockerfile",
-      "sha256": "6ebf06fc7932eb7356acf014e741f0e21d31e7b65568331cafc132e7aeed8e22"
-    },
-    {
-      "path": "backend/Makefile",
-      "sha256": "6c1dd19e42b4b9ce9c87cfe7328c1ac870590320bdd89202bb0d78c389cf2152"
-    },
-    {
-      "path": "backend/pyproject.toml",
-      "sha256": "7736490f7af9cdf386ac4c2a4697a80e258ec1ae6e1b204e0387e3bc394aab85"
-    },
-    {
-      "path": "backend/README.md",
-      "sha256": "0de5481b85236b8864d98830fe1d247167e188519f91db640a184494339c3f9b"
-    },
-    {
-      "path": "backend/uv.lock",
-      "sha256": "47440c17770dca98003b4e01cdb8db3eabf588a37e4e86f3ecbbb4c78f76690c"
-    },
-    {
-      "path": "backend/docs/agent_contracts.md",
-      "sha256": "55042044c6a60b35c68d854443f495d98e84a8d7db2bd90fa602c7764ebf934f"
-    },
-    {
-      "path": "backend/docs/api_contracts.md",
-      "sha256": "87cd159e45b576ba1dac540fc26113f38d96149d5f705e5f7d8db5565378c588"
-    },
-    {
-      "path": "backend/docs/architecture.md",
-      "sha256": "5f2e290a37c44629c3b1cabb4fae1f055d9347e3f9212852615a66d6ec99c91a"
-    },
-    {
-      "path": "backend/docs/database.md",
-      "sha256": "85d87cb5d0cb77eff40676f64739daa19cc7124eb3db58adfef0c9c38add73d2"
-    },
-    {
-      "path": "backend/docs/demo_scenarios.md",
-      "sha256": "65d89225ce23af303a9e3a61147ce5433d85742782da796e96966a2242090543"
-    },
-    {
-      "path": "backend/docs/frontend_contracts.md",
-      "sha256": "8b4f69e031cd483fd30c470a91858db5275d088cdc13b4a395589820fdc4351b"
-    },
-    {
-      "path": "backend/docs/live-replay.txt",
-      "sha256": "891568fc4401108115fe72370f2bf1edccdf0d2803d1337fb759b262f3c02e43"
-    },
-    {
-      "path": "backend/docs/openapi.json",
-      "sha256": "5df7655e2494e999c905eb81ef3b2ff5a2d9ef8448c2e58701d9151ab41cd142"
-    },
-    {
-      "path": "backend/docs/original-specification.md",
-      "sha256": "f3086f08f5da3b6048651ff0f280184c828a25a8ac9dd3b7f413d34c1e573671"
-    },
-    {
-      "path": "backend/docs/security.md",
-      "sha256": "eaa5fc79ed3210fcbf3b21d03a3fab2de9070a26e1b0fd284609b853e2aebcb9"
-    },
-    {
-      "path": "backend/docs/test-results.xml",
-      "sha256": "c3af8bc27d1818c4ac779e7104fb8bbaac84ce8c6f8a39d11c80e34291a578e6"
-    },
-    {
-      "path": "backend/docs/validation.md",
-      "sha256": "562abd8af5ef2b56bcb00f36ce8e0022f2f7fa8da33038e07e98ab3a1526354f"
-    },
-    {
-      "path": "backend/docs/workflow_states.md",
-      "sha256": "b2bac09cae0ff49b62526b92407c65840e1c15facf7fc11566c5783cb5c11901"
-    },
-    {
-      "path": "backend/migrations/env.py",
-      "sha256": "22dd486b2cf869f7b1cb47f9f863daa8fd8461b86a2ab94931b3ca1b6b67a35e"
-    },
-    {
-      "path": "backend/migrations/script.py.mako",
-      "sha256": "bb4aec06244d1b8d74f06376f3ebbc9c5a00736db95acee99f21b0b7d26dabea"
-    },
-    {
-      "path": "backend/scripts/generate_benchmark.py",
-      "sha256": "f3cf98f1a32578bd46161fee58a72242a5a73caf852ab62f63c6b51147aa3901"
-    },
-    {
-      "path": "backend/scripts/prepare_local_database.py",
-      "sha256": "e206dc152b396222fa38b93c07f5e551ebd3042fe85b0e5b05847954adf27c94"
-    },
-    {
-      "path": "backend/scripts/replay_demo.py",
-      "sha256": "4ab1ccccca028faaf9905707f49a5226dda949c14d97e0b6c3b831ccb18dbdd8"
-    },
-    {
-      "path": "backend/scripts/start-local.ps1",
-      "sha256": "6f2af350a1320a7f6e7154529367efd5c06b08873c83255589c7af4e81307746"
-    },
-    {
-      "path": "backend/scripts/stop-local.ps1",
-      "sha256": "16ab271eecc1da510e75a2a22ac4398c5ecb8cdf9819cbe7a3fe5d59a52bd4ac"
-    },
-    {
-      "path": "backend/tests/conftest.py",
-      "sha256": "ceeb1780384074e332ba66ed20e8fd1697371c4d9f259100367ba769408a59fe"
-    },
-    {
-      "path": "backend/tests/test_assistant_benchmark.py",
-      "sha256": "3e07c8308e2e78c2f81ec8c489bc7db45251f4aca854a5a90526bc68c68491d4"
-    },
-    {
-      "path": "backend/tests/test_contracts.py",
-      "sha256": "7cd71f541a15bad9636997515041411b8caa0464b9d001703e15afe24ce7e170"
-    },
-    {
-      "path": "backend/tests/test_reliability.py",
-      "sha256": "8c6acdf39582e06a5f49d33c5b4de984f289f69812250badb3c93e7de66bebd9"
-    },
-    {
-      "path": "backend/tests/test_security.py",
-      "sha256": "1104641fa23289e9e7059313381e2442f8b519dd1a41d92d85f3eebe65d101bb"
-    },
-    {
-      "path": "backend/tests/test_workflow.py",
-      "sha256": "b644f42c896712c2aef5d78791bca31ff07831da4055910d0b03a933adf5b6ac"
-    },
-    {
-      "path": "backend/tests/fixtures/assistant_benchmark.json",
-      "sha256": "523552b0e4ed64a77671fd7d9229756e85565ff048a39d7e47987469112b09ec"
-    },
-    {
-      "path": "backend/src/careflow/agents.py",
-      "sha256": "cc556d3ba8edd029d0bf1412dbdad109c20859397d82750cadd2b36b103cd2ed"
-    },
-    {
-      "path": "backend/src/careflow/api.py",
-      "sha256": "790e219d065d8f68234a008823aa3e7b7daa869e7f467e3436cdda3db6e93cc3"
-    },
-    {
-      "path": "backend/src/careflow/approvals.py",
-      "sha256": "36f4ae0881e42a564669d324d5a5ae2d21f1190c1746b6a0a14c10c368196739"
-    },
-    {
-      "path": "backend/src/careflow/assistant.py",
-      "sha256": "dff736c2ba5c8b4e99a26dabbf6e4d8382c62ab2e09cdab60f9ccdc45f5c8665"
-    },
-    {
-      "path": "backend/src/careflow/config.py",
-      "sha256": "03d0358cf043518544898cf0c023872d08bcec651247fabe7ee55898d10e03e2"
-    },
-    {
-      "path": "backend/src/careflow/db.py",
-      "sha256": "de6b9c16a8b5dd2b485dd3180a923bc14be212a0d5a196fe78aa5c95a821aa89"
-    },
-    {
-      "path": "backend/src/careflow/demo.py",
-      "sha256": "a1d06b9f55218ade908906df7867c7d1e4e2167e5c2c9ad8e05113c0690f2f9a"
-    },
-    {
-      "path": "backend/src/careflow/documents.py",
-      "sha256": "5769ef155cfcf45cbd147413b47d5d4abf03a2647b6487b1d36266a4ffa97a06"
-    },
-    {
-      "path": "backend/src/careflow/events.py",
-      "sha256": "b7ffce08b168243a658e567acb7216483b2ac0ebf83518ee6768c7b447e08044"
-    },
-    {
-      "path": "backend/src/careflow/integrations.py",
-      "sha256": "b859aa362c15cc6336835204ec77f67c4b30cce48f731f2fd45f226310858659"
-    },
-    {
-      "path": "backend/src/careflow/main.py",
-      "sha256": "c8a3dcaa071581891bbffb2dabe7dbd385933aab2e5d3152877c66d74d2373ca"
-    },
-    {
-      "path": "backend/src/careflow/models.py",
-      "sha256": "c982b6de6c76a2a3a7b0b81110fae2ce91d5ddabc25a87844443645655a0df79"
-    },
-    {
-      "path": "backend/src/careflow/schemas.py",
-      "sha256": "566a075c86b84352deea776c5889b26ec403fd0b687b79f666ee7b4f3d3802fa"
-    },
-    {
-      "path": "backend/src/careflow/security.py",
-      "sha256": "b746457272c214c5a01a492b5662cd81767c1be3447941cbbf06ae8479744a6e"
-    },
-    {
-      "path": "backend/src/careflow/seed.py",
-      "sha256": "37053adfcebadf451d0923b9eb3004f2b8449b43a671dc106eb9238ab059ad1c"
-    },
-    {
-      "path": "backend/src/careflow/services.py",
-      "sha256": "33c35c9bc1bd057617c90f25229ff98f95bb1194df450f48e600ca1b407adf00"
-    },
-    {
-      "path": "backend/src/careflow/tools.py",
-      "sha256": "de0182c9209efe479d0b399c9e5951927b81accca314a74e993d106d94f36d5f"
-    },
-    {
-      "path": "backend/src/careflow/views.py",
-      "sha256": "471edc057020c44ab4f5399acda99ec41c59d30d1772bcf97332ea5da362ae71"
-    },
-    {
-      "path": "backend/src/careflow/voice.py",
-      "sha256": "f95534e2c6f2a45b5f1af47086c4ce793c4d7f6e26132526a367e35cbbea4eff"
-    },
-    {
-      "path": "backend/src/careflow/worker.py",
-      "sha256": "06747408a087e2117311338a247f5d6ff9e871b8bf45d3bc235eefc62d77995d"
-    },
-    {
-      "path": "backend/src/careflow/workflow.py",
-      "sha256": "f93dca9bb8ac1c44c815e13e5fb9899cde288d4b234af65d3719d042de26eeaa"
-    },
-    {
-      "path": "backend/src/careflow/__init__.py",
-      "sha256": "9a969f36dd21720edea4eaccc5affe1ddef810b251f25fb17b1da68272e2b650"
-    },
-    {
-      "path": "backend/migrations/versions/cf0002_immutable_proposals.py",
-      "sha256": "a4e940965f6543cd6dbf8cd85f22b8bab7956ae5652c7de79cf669e428512271"
-    },
-    {
-      "path": "backend/migrations/versions/f879d7c4dce3_initial_relational_schema.py",
-      "sha256": "7c934bf1f83ffade6c95e0e2741f55cb585d6e2d7fcc053e8eed347bcd660b1b"
     }
-  ],
-  "excluded": [
-    "installed dependencies",
-    "environment secrets",
-    "runtime databases",
-    "generated builds",
-    "caches",
-    "generated patient document storage"
   ]
 }

@@ -235,7 +235,9 @@ async def get_proposal(
 ) -> Proposal:
     q = select(Proposal).where(Proposal.id == proposal_id, Proposal.tenant_id == actor.tenant_id)
     if lock:
-        q = q.with_for_update()
+        # A prior read may already be in this session's identity map. After
+        # waiting for another reviewer's lock, use the row they committed.
+        q = q.with_for_update().execution_options(populate_existing=True)
     p = await db.scalar(q)
     if p is None:
         raise HTTPException(404, "Proposal not found")

@@ -2,6 +2,12 @@
 
 The website and Mira guided walkthrough remain available. Staff profiles now use one durable shared case workspace, beginning with **zero cases**. Only fictional patient data belongs here.
 
+## Agent presentation update (15 October 2026)
+
+**AI agents** in the workspace header opens all ten capability explanations. Each includes before/after, inputs, prepared output and the staff review step. Mira guides the clicks; the Case answers agent retrieves saved facts. The guided case demonstrates each capability and ends with an agent recap. Ordinary **New case → Use the Referral agent** also prepares a fresh draft for staff review.
+
+Missing supporting notes stay blank until a matching returned paper is checked and explicitly applied. Insurer details also require source review before filling the form, followed by a separate human approval. Denied-claim resubmissions record the correction as claims-only evidence. See [the audit](docs/demo-audit-2026-10-15.md) for the full walkthrough and validation. This update is local and on GitHub; it has not been published to the existing Site.
+
 ## Staff workflow
 
 Admin or Intake creates a case from a sample email/fax, paper referral, hospital-system request or reception request. These are source labels entered by a person, not connected inboxes or feeds.
